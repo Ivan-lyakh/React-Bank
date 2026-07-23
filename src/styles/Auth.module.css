@@ -1,0 +1,121 @@
+.main {
+  background-color: #F8FAFC;
+  min-height: 100vh;
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  gap: 100px;
+}
+
+.innerContainer{
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+
+.card {
+  border: 1px solid #E5E7EB;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+  transition: 400ms;
+  border-radius: 10px;
+}
+
+.card:hover{
+  transition: 400ms;
+  transform: scale(1.01);
+  box-shadow: 0 10px 25px rgba(0,0,0,.05);
+}
+
+.card h2{
+  text-align: center;
+  line-height: 150%;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 25px;
+}
+
+.header span {
+  color: rgb(89, 89, 170);
+}
+
+.header h2{
+  line-height: 150%;
+}
+
+
+.modeColumn{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  justify-content: space-between;
+}
+
+.modeColumn h2{
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.modeColumn input {
+  border: 2px solid rgb(89, 89, 170);
+  border-radius: 5px;
+  font-size: 15px;
+  padding: 5px 10px;
+}
+
+.mode {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+
+.modeBody{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.passBody {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.togglePass{
+  position: absolute;
+  max-width: 20px;
+  cursor: pointer;
+  right: 10px;
+}
+
+
+
+@media (min-width: 1200px){
+  .header{
+    flex-direction: row;
+  }
+}
+
+
+@media (min-width:769px){
+  .modeColumn{
+    flex-direction: row;
+  }
+  .modeBody{
+    gap: 30px;
+  }
+}
