@@ -6,19 +6,31 @@ import { HomePage } from "../pages/HomePage"
 import { ProfilePage } from "../pages/ProfilePage"
 import { Routes, Route } from "react-router-dom"
 import { MainLayout } from "../layout/MainLayout"
+import { PrivateRoute } from "./PrivatRoute"
+
 
 
 export const AppRouter = () => {
+
+
+
 
   return (
     <>
       <Routes>
 
-        <Route element={<MainLayout />}>
+        <Route element={
+          <PrivateRoute>
+            <MainLayout />
+          </PrivateRoute>
+        }>
+
+
           <Route path="/" element={<HomePage />} />
           <Route path="/profile" element={<ProfilePage />} />
           <Route path="/history" element={<HistoryPage />} />
-          <Route path="/history/id" element={<HistoryDetailsPage />} />
+          <Route path="/history/:id" element={<HistoryDetailsPage />} />
+
         </Route>
 
         <Route path="/auth" element={<AuthPage />} />
