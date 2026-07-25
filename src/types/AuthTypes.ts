@@ -15,4 +15,6 @@ export type InitialState = {
 export type ActionsUser = {
   handleRegister: () => Promise<void>,
   handleLogin: () => Promise<void>
+  handleLogout: () => Promise<void>
+  stopLoadingUser: () => void
 }

@@ -1,0 +1,72 @@
+.main {
+  padding: 40px 0px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.mainContainer{
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+
+.sectionHeader img {
+  max-width: 45px;
+  transition: 300ms;
+}
+
+.sectionHeader:hover{
+  transition: transform 0.25s ease;
+  transform: translateY(-5px);
+}
+
+.sectionHeader h2{
+  font-size: 25px;
+}
+
+.sectionHeader{
+  transition: 300ms;
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  cursor: pointer;
+  transition: transform 0.25s ease;
+}
+
+
+.seactionTools{
+  display: flex;
+  gap: 20px;
+}
+
+.seactionTools h2{
+  font-size: 15px;
+}
+
+
+.sectionSeteding img {
+  max-width: 30px;
+}
+
+.sectionSeteding button{
+  background-color: inherit;
+  transition: transform 0.25s ease;
+}
+
+.sectionSeteding button:hover{
+  transition: 400ms;
+  transform: translateY(-5px);
+}
+
+@media (min-width:768px){
+  .mainContainer{
+    flex-direction: row;
+  }
+}
+
+@media (min-width:1200px){
+  .sectionHeader h2{
+  font-size: 30px;
+}
+}

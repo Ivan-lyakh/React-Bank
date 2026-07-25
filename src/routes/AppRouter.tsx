@@ -7,6 +7,7 @@ import { ProfilePage } from "../pages/ProfilePage"
 import { Routes, Route } from "react-router-dom"
 import { MainLayout } from "../layout/MainLayout"
 import { PrivateRoute } from "./PrivatRoute"
+import { SetedingPage } from "../pages/SetedingPage"
 
 
 
@@ -29,6 +30,7 @@ export const AppRouter = () => {
           <Route path="/" element={<HomePage />} />
           <Route path="/profile" element={<ProfilePage />} />
           <Route path="/history" element={<HistoryPage />} />
+          <Route path="/setteding" element={<SetedingPage/>}></Route>
           <Route path="/history/:id" element={<HistoryDetailsPage />} />
 
         </Route>

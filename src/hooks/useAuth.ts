@@ -3,6 +3,7 @@ import type { InitialState } from "../types/AuthTypes"
 import { supabase } from "../services/supabase/supabase"
 import type { User } from "@supabase/supabase-js"
 import { createAccount } from "../utils/AuthHelpers"
+import { useNavigate } from "react-router-dom"
 
 const initialState = {
   error: "",
@@ -54,13 +55,15 @@ const reducer = (state: InitialState, action: Action) => {
 
 export const useAuth = () => {
 
+  const navigate = useNavigate()
+
   const [auth, dispatch] = useReducer(reducer, initialState)
 
   const [user, setUser] = useState<null | User>(null)
 
-  const [loadingUser, setLoadingUser] = useState(true);
-
   console.log(user)
+
+  const [loadingUser, setLoadingUser] = useState(true);
 
 
   useEffect(() => {
@@ -74,7 +77,6 @@ export const useAuth = () => {
         setLoadingUser(false);
 
       }
-
 
     }
 
@@ -99,7 +101,6 @@ export const useAuth = () => {
     if (error) {
       dispatch({ type: "CHANGE_ERROR", payload: error.message });
       dispatch({ type: "CHANGE_LOADING", payload: false });
-      return;
     }
 
     if (data.user) {
@@ -107,12 +108,16 @@ export const useAuth = () => {
 
       await createAccount(data.user.id);
 
-      setLoadingUser(false)
     }
 
     dispatch({ type: "CHANGE_LOADING", payload: false });
+    setLoadingUser(false)
+
   };
 
+  const stopLoadingUser = () => {
+    setLoadingUser(false)
+  }
 
   const handleLogin = async () => {
 
@@ -128,19 +133,40 @@ export const useAuth = () => {
     if (error) {
       dispatch({ type: "CHANGE_ERROR", payload: error.message })
       dispatch({ type: "CHANGE_LOADING", payload: false })
+      setLoadingUser(false)
+      return
     }
 
     setUser(data.user)
 
     dispatch({ type: "CHANGE_LOADING", payload: false })
 
+  }
 
+  const handleLogout = async () => {
+
+    dispatch({ type: "CHANGE_ERROR", payload: "" })
+
+    dispatch({ type: "CHANGE_LOADING", payload: true })
+
+    const { error } = await supabase.auth.signOut();
+
+    if (error) {
+      dispatch({ type: "CHANGE_ERROR", payload: error.message })
+      dispatch({ type: "CHANGE_LOADING", payload: false })
+    }
+
+    setUser(null)
+
+    navigate("/auth")
+
+    dispatch({ type: "CHANGE_LOADING", payload: false })
 
   }
 
-  const actionsUser = { handleRegister, handleLogin }
+  const actionsUser = { handleRegister, handleLogin, handleLogout , stopLoadingUser }
 
 
-  return { auth, dispatch, user, actionsUser, loadingUser }
+  return { auth, dispatch, user, actionsUser, loadingUser  }
 
 }

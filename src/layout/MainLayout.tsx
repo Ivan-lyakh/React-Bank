@@ -9,11 +9,20 @@ export const MainLayout = () => {
   return (
 
     <div className="container">
-      <Header />
+      <div className="wrapper">
 
-      <Outlet />
+        <div className="header">
+          <Header />
+        </div>
 
-      <Footer />
+        <div className="main">
+          <Outlet />
+        </div>
+
+        <div className="footer">
+          <Footer />
+        </div>
+      </div>
     </div>
 
   )

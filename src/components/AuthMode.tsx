@@ -5,7 +5,6 @@ import open from '../images/openEayes.png'
 import { useUser } from '../hooks/useUser'
 import { Loading } from './Loading/Loading'
 import { ErrorModal } from './Error/ErrorModal'
-import { useNavigate } from "react-router-dom";
 
 type Props = {
   mode: string
@@ -15,9 +14,7 @@ export const AuthMode = (props: Props) => {
 
   const [secretPassword, setSecretPassword] = useState(true)
 
-  const {auth, dispatch, actionsUser } = useUser()
-
-  const navigate = useNavigate()
+  const { auth, dispatch, actionsUser } = useUser()
 
 
   if (auth.loading) {
@@ -125,12 +122,10 @@ export const AuthMode = (props: Props) => {
               return
             }
             actionsUser.handleRegister();
-            navigate("/")
             return
           }
 
-          actionsUser.handleLogin()
-          navigate("/")
+          actionsUser.handleLogin();
         }}
 
       >
