@@ -91,6 +91,21 @@ export const AuthMode = (props: Props) => {
             </div>
 
             <div className={styles.modeColumn}>
+              <h2>Surname:</h2>
+
+              <input
+                type="text"
+                value={auth.form.surename}
+                onChange={(e) =>
+                  dispatch({
+                    type: "SET_FORM_FIELD",
+                    payload: { field: "surename", value: e.target.value }
+                  })
+                }
+              />
+            </div>
+
+            <div className={styles.modeColumn}>
               <h2>Age:</h2>
 
               <input

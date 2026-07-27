@@ -1,3 +1,4 @@
+import { useAccount } from "../../hooks/useAccount";
 import { useUser } from "../../hooks/useUser";
 import styles from "./Error.module.css";
 
@@ -7,7 +8,8 @@ type Props = {
 
 export const ErrorModal = ({ message }: Props) => {
 
-  const { auth, dispatch } = useUser()
+  const { dispatch } = useUser()
+  const { dispatchAccount } = useAccount()
 
   return (
     <div className={styles.overlay}>
@@ -17,14 +19,17 @@ export const ErrorModal = ({ message }: Props) => {
           !
         </div>
 
-        <h2>Ошибка</h2>
+        <h2>Error</h2>
 
         <p>{message}</p>
 
         <button
-          onClick={() => dispatch({ type: "CHANGE_ERROR", payload: "" })}
+          onClick={() => {
+            dispatch({ type: "CHANGE_ERROR", payload: "" })
+            dispatchAccount({ type: "SET_ERROR", paylod: "" })
+          }}
           className="button">
-          Закрыть
+          Closed
         </button>
 
       </div>

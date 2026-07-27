@@ -1,18 +1,35 @@
 
 import { useAccount } from "../hooks/useAccount"
 import { useUser } from "../hooks/useUser"
+import styles from '../styles/Dashboard.module.css'
+import { DashboardMain } from "./DashboardMain"
+import { Loading } from "./Loading/Loading"
+
+
 
 
 export const Dashboard = () => {
 
-  const { user, actionsUser } = useUser()
+  const { user } = useUser()
 
-  const { account, dispatchAccount } = useAccount()
+  const {accountLoading } = useAccount()
 
   return (
-    <div>
-      <h2>{user?.user_metadata.name}</h2>
-      <h2>{account.account?.account_number}</h2>
+    <div className={styles.main}>
+
+      <div className={styles.hello}>
+        <h2 className="title">Welcome , <span>{user?.user_metadata.name}</span>👋</h2>
+      </div>
+
+      <div className={styles.body}>
+
+        {accountLoading === false
+          ? <DashboardMain />
+          : <Loading />
+        }
+
+      </div>
+
     </div>
   )
 }

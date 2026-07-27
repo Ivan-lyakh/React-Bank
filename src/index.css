@@ -18,7 +18,7 @@ body {
 
 .button:hover{
   transition: 300ms;
-  background-color: rgb(100, 100, 168);
+  background-color: #8BB7F0;
   color: #fff;
 }
 
@@ -54,8 +54,6 @@ body {
   flex: 1 1 ;
   display: flex;
   min-height: 100%;
-  flex-direction: column;
-  justify-content: center;
 }
 
 .footer {

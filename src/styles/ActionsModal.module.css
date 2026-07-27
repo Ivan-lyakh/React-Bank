@@ -1,0 +1,96 @@
+.modal {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.459);
+  backdrop-filter: blur(4px);
+  z-index: 1111;
+}
+
+
+.pin {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  padding-top: 70px;
+}
+
+.pin h2 {
+  text-align: center;
+}
+
+.pin input {
+  font-size: 25px;
+  padding: 10px 15px;
+  max-width: 150px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.pin button {
+  padding: 10px 30px;
+  border-radius: 10px;
+  font-size: 17px;
+  font-weight: 600;
+  transition: 400ms;
+}
+
+.pin button:hover {
+  transform: scale(1.05);
+  transition: 400ms;
+}
+
+.modalBox {
+  border: 3px solid #fff;
+  background-color: #8BB7F0;
+  min-height: 400px;
+  border-radius: 10px;
+  max-width: 700px;
+  padding: 20px;
+  position: relative;
+  margin: 0px auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, .15);
+}
+
+.closed {
+  width: 40px;
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  cursor: pointer;
+  transition: 400ms;
+}
+
+.title {
+  position: absolute;
+  left: 20px;
+  top: 20px;
+}
+
+.closed:hover {
+  transform: scale(1.1);
+  transition: 400ms;
+}
+
+.closed img {
+  position: absolute;
+  max-width: 100%;
+}
+
+
+.header {
+  display: flex;
+  justify-content: start;
+}
+
+.body {
+  padding-top: 50px;
+}

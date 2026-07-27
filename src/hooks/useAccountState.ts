@@ -1,5 +1,5 @@
 
-import { useReducer } from "react"
+import { useReducer, useState } from "react"
 import type { Account, InitialState } from "../types/AccountTypes"
 import type { User } from "@supabase/supabase-js"
 import { supabase } from "../services/supabase/supabase"
@@ -47,6 +47,9 @@ export const useAccountState = () => {
 
   const [account, dispatchAccount] = useReducer(reducer, initialState)
 
+  const [accountLoading, setAccoutLoading] = useState(true)
+
+
   const loadAccount = async (user: User) => {
 
     dispatchAccount({ type: "SET_ERROR", paylod: "" })
@@ -63,6 +66,7 @@ export const useAccountState = () => {
       dispatchAccount({ type: "SET_ERROR", paylod: error.message })
       dispatchAccount({ type: "CHANGE_LOADING", payload: false })
       console.log(`Error is load account: ${error.message}`);
+      setAccoutLoading(false)
       return
     }
 
@@ -70,10 +74,12 @@ export const useAccountState = () => {
 
     dispatchAccount({ type: "CHANGE_LOADING", payload: false })
 
+    setAccoutLoading(false)
+
   }
 
   const accoutActions = { loadAccount }
 
-  return { account, dispatchAccount, accoutActions }
+  return { account, accountLoading, dispatchAccount, accoutActions }
 
 }

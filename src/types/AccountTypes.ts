@@ -6,6 +6,7 @@ export type Account = {
   balance: number,
   user_id: string,
   account_number: string
+  PIN: number
 }
 
 export type InitialState = {

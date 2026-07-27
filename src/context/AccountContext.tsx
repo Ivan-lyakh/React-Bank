@@ -8,6 +8,7 @@ type AccountContext = {
   account: InitialState,
   dispatchAccount: React.Dispatch<Action>
   accoutActions: ActionsAccounts
+  accountLoading: boolean
 }
 
 export const AccountContext = createContext<null | AccountContext>(null)

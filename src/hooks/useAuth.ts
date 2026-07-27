@@ -12,6 +12,7 @@ const initialState = {
     email: "",
     password: "",
     name: "",
+    surename: "",
     age: "",
   },
 }
@@ -61,8 +62,6 @@ export const useAuth = () => {
 
   const [user, setUser] = useState<null | User>(null)
 
-  console.log(user)
-
   const [loadingUser, setLoadingUser] = useState(true);
 
 
@@ -83,6 +82,9 @@ export const useAuth = () => {
     loadUsers()
   }, [])
 
+
+
+
   const handleRegister = async () => {
     dispatch({ type: "CHANGE_ERROR", payload: "" });
     dispatch({ type: "CHANGE_LOADING", payload: true });
@@ -94,6 +96,7 @@ export const useAuth = () => {
         data: {
           name: auth.form.name,
           age: auth.form.age,
+          surename: auth.form.surename
         },
       },
     });
@@ -115,9 +118,13 @@ export const useAuth = () => {
 
   };
 
+
+
   const stopLoadingUser = () => {
     setLoadingUser(false)
   }
+
+
 
   const handleLogin = async () => {
 
@@ -143,6 +150,8 @@ export const useAuth = () => {
 
   }
 
+
+
   const handleLogout = async () => {
 
     dispatch({ type: "CHANGE_ERROR", payload: "" })
@@ -164,9 +173,11 @@ export const useAuth = () => {
 
   }
 
-  const actionsUser = { handleRegister, handleLogin, handleLogout , stopLoadingUser }
 
 
-  return { auth, dispatch, user, actionsUser, loadingUser  }
+  const actionsUser = { handleRegister, handleLogin, handleLogout, stopLoadingUser }
+
+
+  return { auth, dispatch, user, actionsUser, loadingUser }
 
 }

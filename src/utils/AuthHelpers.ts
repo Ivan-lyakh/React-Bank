@@ -8,6 +8,7 @@ export const createAccount = async (userId: string) => {
       balance: 0,
       user_id: userId,
       account_number: generateAccountNumber(),
+      PIN: generatePinCode()
     });
 
   if (error) {
@@ -30,3 +31,11 @@ export const generateAccountNumber = (): string => {
 
   return groups.join(" ");
 };
+
+
+export const generatePinCode = (): string => {
+  const array = new Uint32Array(1);
+  crypto.getRandomValues(array);
+
+  return (1000 + (array[0] % 9000)).toString();
+}

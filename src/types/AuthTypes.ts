@@ -2,8 +2,8 @@ export type Form = {
   email: string,
   password: string,
   name: string,
-  age: string
-
+  surename: string,
+  age: string,
 }
 
 export type InitialState = {

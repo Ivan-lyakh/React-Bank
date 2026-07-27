@@ -1,0 +1,246 @@
+.hello h2 {
+  font-size: 25px;
+}
+
+.hello h2 span {
+  color: #8BB7F0;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  gap: 35px;
+  width: 100%;
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 50px;
+}
+
+.dashboard {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+
+
+/*-------------------------------------------------------------------------------Card----------------------------------------------------------------------------*/
+
+.card h2 {
+  color: #f3e9e9;
+}
+
+.card {
+  background-color: #8BB7F0;
+  padding: 20px;
+  max-width: 350px;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  border-radius: 10px;
+  transition: 400ms;
+}
+
+.card:hover {
+  transition: 400ms;
+  transform: scale(1.01);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, .15);
+}
+
+.cardHeader h2 {
+  font-size: 25px;
+  padding: 20px 0px;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.cardNumber h2 {
+  font-weight: 700;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.copy {
+  transition: transform 0.25s ease;
+  cursor: pointer;
+}
+
+.copy:hover {
+  transition: transform 0.25s ease;
+  transform: translateY(-5px);
+}
+
+.cardNumber {
+  display: flex;
+}
+
+.cardNumber button {
+  position: relative;
+  width: 30px;
+}
+
+.cardNumber button img {
+  position: absolute;
+  max-width: 100%;
+}
+
+.cardNumber h2 img {
+  max-width: 30px;
+}
+
+.cardBalance {
+  padding: 20px 0px;
+}
+
+.cardBalance h2 {
+  font-size: 25px;
+}
+
+.cardBalance h2 span {
+  font-weight: 700;
+}
+
+
+/*-------------------------------------------------------------------------------Card----------------------------------------------------------------------------*/
+
+
+
+
+
+
+/*-------------------------------------------------------------------------------Tools----------------------------------------------------------------------------*/
+
+.acions {
+  max-width: 350px;
+  transition: 400ms;
+}
+
+.acions:hover {
+  transition: 400ms;
+  transform: scale(1.01);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, .15);
+}
+
+.actionsHeader {
+  background-color: #8BB7F0;
+  border-radius: 10px 10px 0px 0px;
+}
+
+.actionsHeader h2 {
+  padding: 10px 0px;
+  color: #f3e9e9;
+}
+
+.actionsBody {
+  border: 2px solid #8BB7F0;
+  padding: 30px 20px;
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.actionsBody button {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+
+
+
+
+
+/*-------------------------------------------------------------------------------Tools----------------------------------------------------------------------------*/
+
+
+
+
+
+
+
+
+
+@media(max-width:450px){
+  .hello{
+    text-align: left;
+  }
+}
+
+@media(min-width: 900px) {
+  .body {
+    display: block;
+  }
+}
+
+
+@media (min-width: 900px) {
+  .dashboard {
+    display: block;
+  }
+
+  .column {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .acions {
+    max-width: none;
+  }
+
+  .card {
+    max-width: none;
+    gap: 5px;
+    padding: 20px 30px;
+  }
+
+  .cardBalance {
+    padding-bottom: 0px;
+    margin-top: 20px;
+  }
+
+}
+
+@media(min-width:1200px) {
+  .main {
+    padding-top: 50px;
+  }
+
+  .column {
+    padding-top: 50px;
+  }
+
+  .card {
+    padding: 40px;
+  }
+
+  .hello h2 {
+    font-size: 35px;
+  }
+
+  .cardHeader h2 {
+    padding: 0px 0px;
+  }
+
+  .cardNumber {
+    padding-top: 30px;
+  }
+
+
+  .actionsBody {
+    padding: 40px 20px;
+  }
+}
