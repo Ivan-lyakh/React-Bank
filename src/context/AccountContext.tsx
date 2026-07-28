@@ -1,13 +1,14 @@
 import { createContext } from "react";
 import type { InitialState } from "../types/AccountTypes";
 import { type Action } from "../hooks/useAccountState";
-import { type ActionsAccounts } from "../types/AccountTypes";
+import { type User } from "@supabase/supabase-js";
+
 
 
 type AccountContext = {
   account: InitialState,
   dispatchAccount: React.Dispatch<Action>
-  accoutActions: ActionsAccounts
+  loadAccount: (user: User | null) => Promise<void>
   accountLoading: boolean
 }
 

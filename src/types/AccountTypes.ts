@@ -15,6 +15,7 @@ export type InitialState = {
   account: null | Account
 }
 
-export type ActionsAccounts = {
-  loadAccount: (user: User) => Promise<void>
+
+export type LoadAccount = {
+  loadAccount: (user: User | null) => Promise<void>
 }

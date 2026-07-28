@@ -83,8 +83,6 @@ export const useAuth = () => {
   }, [])
 
 
-
-
   const handleRegister = async () => {
     dispatch({ type: "CHANGE_ERROR", payload: "" });
     dispatch({ type: "CHANGE_LOADING", payload: true });
@@ -117,7 +115,6 @@ export const useAuth = () => {
     setLoadingUser(false)
 
   };
-
 
 
   const stopLoadingUser = () => {

@@ -29,9 +29,8 @@ export const generateAccountNumber = (): string => {
     groups.push(group.toString());
   }
 
-  return groups.join(" ");
+  return groups.join("");
 };
-
 
 export const generatePinCode = (): string => {
   const array = new Uint32Array(1);

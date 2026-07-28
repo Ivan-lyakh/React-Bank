@@ -8,3 +8,8 @@ export const handleCopy = async (value: string) => {
 export function formatNumber(number: number): string {
   return number.toLocaleString("de-DE");
 }
+
+
+export const formatAccountNumber = (accountNumber: string ): string => {
+  return accountNumber.replace(/(.{4})/g, "$1 ").trim();
+};

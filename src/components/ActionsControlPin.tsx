@@ -32,7 +32,7 @@ export const ActionsPIN = (props: Props) => {
       <button onClick={() => {
         Number(value) === account.account?.PIN
           ? props.lock(false) 
-          : dispatchAccount({ type: "SET_ERROR", paylod: "PIN is not corrected , pleasy try again!" }) , setValue("")
+          : dispatchAccount({ type: "SET_ERROR", payload: "PIN is not corrected , pleasy try again!" }) , setValue("")
       }}>Control</button>
 
     </div>

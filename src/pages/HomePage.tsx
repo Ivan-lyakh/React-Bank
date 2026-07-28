@@ -8,11 +8,11 @@ export const HomePage = () => {
 
   const { user } = useUser()
 
-  const { accoutActions } = useAccount()
+  const { loadAccount } = useAccount()
 
   if (user) {
     useEffect(() => {
-      accoutActions.loadAccount(user)
+      loadAccount(user)
     }, [user])
   }
 

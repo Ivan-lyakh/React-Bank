@@ -1,0 +1,72 @@
+.column {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+
+.column input {
+  border-radius: 5px;
+  padding: 10px 15px;
+  font-size: 20px;
+}
+
+.column textarea {
+  border-radius: 5px;
+  padding: 10px 15px;
+  font-size: 15px;
+}
+
+.sections button {
+  padding: 5px 15px;
+  width: 150px;
+  font-size: 20px;
+  border-radius: 5px;
+}
+
+.sections {
+  display: flex;
+  justify-content: center;
+}
+
+.sections h2 {
+  text-align: center;
+  line-height: 150%;
+}
+
+.containerSection{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+
+.columnTransfer{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding-top: 50px;
+}
+
+.columnTransfer input , textarea {
+  border-radius: 5px;
+  padding: 10px 15px;
+  font-size: 17px;
+}
+
+.columnTransfer textarea{
+  min-height: 200px;
+}
+
+
+@media(min-width:550px){
+  .containerSection{
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .message{
+    width: 100%;
+  }
+  .message textarea{
+    width: 100%;
+  }
+}
