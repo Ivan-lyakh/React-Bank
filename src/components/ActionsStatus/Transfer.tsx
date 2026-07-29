@@ -2,13 +2,22 @@ import styles from '../ActionsStatus/ActionStatus.module.css'
 import { useUser } from '../../hooks/useUser'
 import { ErrorModal } from '../Error/ErrorModal'
 import { useActions } from '../../hooks/useActions'
+import { useAccount } from '../../hooks/useAccount'
+import { NumericFormat } from 'react-number-format'
+import { PatternFormat } from 'react-number-format'
 
-export const Transfer = () => {
+type Props = {
+  goActive: React.Dispatch<React.SetStateAction<string>>
+}
+
+export const Transfer = (props: Props) => {
 
 
   const { user } = useUser()
 
   const { actions, actionsAction, dispatchActions } = useActions()
+
+  const { account } = useAccount()
 
   return (
     <div className={styles.columnTransfer}>
@@ -18,20 +27,40 @@ export const Transfer = () => {
 
       <div className={styles.containerSection}>
         <div className={styles.sections}>
-          <input
+          <NumericFormat
             value={actions.form.sum}
-            onChange={(e) => dispatchActions({ type: "SET_FORM_FIELD", payload: { field: "sum", value: e.target.value } })}
-            type="number"
+            thousandSeparator
+            decimalScale={0}
+            allowNegative={false}
             placeholder="transfer sum"
+            onValueChange={(values) =>
+              dispatchActions({
+                type: "SET_FORM_FIELD",
+                payload: {
+                  field: "sum",
+                  value: values.value,
+                },
+              })
+            }
           />
         </div>
 
         <div className={styles.sections}>
-          <input
+          <PatternFormat
             value={actions.form.from}
-            onChange={(e) => dispatchActions({ type: "SET_FORM_FIELD", payload: { field: "from", value: e.target.value } })}
-            type="number"
+            format="#### #### #### ####"
+            mask=""
+            allowEmptyFormatting={false}
             placeholder="number for transfer"
+            onValueChange={(values) =>
+              dispatchActions({
+                type: "SET_FORM_FIELD",
+                payload: {
+                  field: "from",
+                  value: values.value, // В Redux сохранится без пробелов!
+                },
+              })
+            }
           />
         </div>
       </div>
@@ -51,9 +80,28 @@ export const Transfer = () => {
       <div className={styles.sections}>
         <button
           onClick={() => {
-            actionsAction.transfer(user, actions.form.from, Number(actions.form.sum))
-            dispatchActions({ type: "RESET_FORM" })
-          }}
+
+            if (account.account) {
+
+              if (account.account.balance < Number(actions.form.sum)) {
+                dispatchActions({ type: "SET_ERROR", payload: "Insufficient funds to complete the transaction!" })
+                return
+              }
+
+              if (Number(actions.form.sum) === 0) {
+                dispatchActions({ type: "SET_ERROR", payload: "To ensure the operation succeeds, do not leave the fields blank!" })
+                return
+              }
+
+
+              actionsAction.transfer(user, actions.form.from, Number(actions.form.sum))
+              dispatchActions({ type: "RESET_FORM" })
+              props.goActive("")
+
+            }
+
+          }
+          }
         >Transfer
         </button>
       </div>

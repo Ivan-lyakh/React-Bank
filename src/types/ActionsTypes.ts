@@ -4,7 +4,8 @@ export type InitalState = {
   error: string,
   loading: boolean,
   form: {
-    email: string,
+    status: string,
+    done: boolean,
     sum: string,
     from: string,
     massege: string,

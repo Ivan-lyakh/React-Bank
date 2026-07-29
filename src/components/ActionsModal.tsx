@@ -40,13 +40,13 @@ export const ActionsModal = (props: Props) => {
 
               : <div className={styles.body}>
 
-                {props.status === "transfer" && <Transfer />}
+                {props.status === "transfer" && <Transfer goActive={props.goActive} />}
 
-                {props.status === "deposit" && <Deposit />}
+                {props.status === "deposit" && <Deposit goActive={props.goActive} />}
 
-                {props.status === "windtraw" && <Windtraw />}
+                {props.status === "windtraw" && <Windtraw goActive={props.goActive} />}
 
-                {props.status === "loan" && <Loan />}
+                {props.status === "loan" && <Loan goActive={props.goActive} />}
 
               </div>
 

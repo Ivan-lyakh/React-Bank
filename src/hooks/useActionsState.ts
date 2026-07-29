@@ -12,7 +12,8 @@ const InitalState = {
   error: "",
   loading: false,
   form: {
-    email: "",
+    status: "",
+    done: false,
     sum: "",
     from: "",
     massege: "",
@@ -24,8 +25,9 @@ const InitalState = {
 export type Action =
   { type: "CHANGE_LOADING", payload: boolean } |
   { type: "SET_ERROR", payload: string } |
-  { type: "SET_FORM_FIELD", payload: { field: string, value: string } } |
-  { type: "RESET_FORM" }
+  { type: "SET_FORM_FIELD", payload: { field: string, value: string | boolean } } |
+  { type: "RESET_FORM" } 
+
 
 const reducer = (state: InitalState, action: Action) => {
 
@@ -47,10 +49,12 @@ const reducer = (state: InitalState, action: Action) => {
       }
     }
 
+
     case "RESET_FORM": {
       return {
         ...state, form: {
-          email: "",
+          status: "",
+          done: false,
           sum: "",
           from: "",
           massege: "",
@@ -69,6 +73,8 @@ export const useActionsState = (account: Account | null, loadAccount: (user: Use
 
 
   const [actions, dispatchActions] = useReducer(reducer, InitalState)
+
+  console.log(actions)
 
 
   const changeBalance = async (user: User | null, value: number, mode: "deposit" | "windtraw") => {
@@ -102,6 +108,7 @@ export const useActionsState = (account: Account | null, loadAccount: (user: Use
               }
 
               loadAccount(user)
+              dispatchActions({ type: "SET_FORM_FIELD", payload: { field: "done", value: true } })
 
             }
           }
@@ -145,6 +152,7 @@ export const useActionsState = (account: Account | null, loadAccount: (user: Use
             }
 
             loadAccount(user)
+            dispatchActions({ type: "SET_FORM_FIELD", payload: { field: "done", value: true } })
           }
 
           finally {
@@ -188,6 +196,8 @@ export const useActionsState = (account: Account | null, loadAccount: (user: Use
           await changeBalanceWhere(Number(balanceWhere), where, sum)
 
           loadAccount(user)
+
+          dispatchActions({ type: "SET_FORM_FIELD", payload: { field: "done", value: true } })
 
         }
 

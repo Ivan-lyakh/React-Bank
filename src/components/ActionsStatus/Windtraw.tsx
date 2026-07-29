@@ -3,8 +3,16 @@ import { useUser } from '../../hooks/useUser'
 import { useActions } from '../../hooks/useActions'
 import { ErrorModal } from '../Error/ErrorModal'
 import { useAccount } from '../../hooks/useAccount'
+import { NumericFormat } from 'react-number-format'
 
-export const Windtraw = () => {
+
+type Props = {
+  goActive: React.Dispatch<React.SetStateAction<string>>
+}
+
+
+
+export const Windtraw = (props: Props) => {
 
   const { user } = useUser()
 
@@ -19,11 +27,22 @@ export const Windtraw = () => {
 
 
       <div className={styles.sections}>
-        <input
+
+        <NumericFormat
           value={actions.form.sum}
-          onChange={(e) => dispatchActions({ type: "SET_FORM_FIELD", payload: { field: "sum", value: e.target.value } })}
-          type="number"
+          thousandSeparator
+          decimalScale={0}
+          allowNegative={false}
           placeholder="sum windtraw"
+          onValueChange={(values) =>
+            dispatchActions({
+              type: "SET_FORM_FIELD",
+              payload: {
+                field: "sum",
+                value: values.value,
+              },
+            })
+          }
         />
       </div>
       <div className={styles.sections}>
@@ -33,17 +52,20 @@ export const Windtraw = () => {
             if (account.account) {
 
               if (account.account.balance < Number(actions.form.sum)) {
-                dispatchActions({ type: "SET_ERROR", payload: "Ensure that you have sufficient funds in your account to complete the transaction." })
+                dispatchActions({ type: "SET_ERROR", payload: "Insufficient funds to complete the transaction!" })
+                dispatchActions({ type: "RESET_FORM" })
                 return
               }
 
               if (Number(actions.form.sum) === 0) {
                 dispatchActions({ type: "SET_ERROR", payload: "To ensure the operation succeeds, do not leave the fields blank!" })
+                dispatchActions({ type: "RESET_FORM" })
                 return
               }
 
               actionsAction.changeBalance(user, Number(actions.form.sum), "windtraw")
               dispatchActions({ type: "RESET_FORM" })
+              props.goActive("")
             }
 
           }}

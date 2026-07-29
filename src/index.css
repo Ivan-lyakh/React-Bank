@@ -22,6 +22,11 @@ body {
   color: #fff;
 }
 
+.deativetedBtn button:hover{
+  transition: 300ms;
+  background-color: rgba(128, 128, 128, 0.616);
+  color: #fff;
+}
 
 
 

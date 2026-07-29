@@ -21,7 +21,12 @@ export const ActionDashboard = (props: Props) => {
         <button onClick={() => props.goActive("transfer")} className='button'><FaPaperPlane />Transfer</button>
         <button onClick={() => props.goActive("deposit")} className='button'><FaPlusCircle />Deposit</button>
         <button onClick={() => props.goActive("windtraw")} className='button'><FaMinusCircle />Windtraw</button>
-        <button onClick={() => props.goActive("loan")} className='button'><FaHandHoldingUsd />Get a loan</button>
+        <div className='deativetedBtn'>
+          <button
+          className='button'
+          disabled
+          onClick={() => props.goActive("loan")} ><FaHandHoldingUsd />Get a loan</button>
+        </div>
       </div>
 
 
