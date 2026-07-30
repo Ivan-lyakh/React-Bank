@@ -4,6 +4,7 @@ import { useUser } from "../../hooks/useUser"
 import { useActions } from "../../hooks/useActions"
 import { ErrorModal } from "../Error/ErrorModal"
 import { NumericFormat } from "react-number-format";
+import { useHistory } from '../../hooks/useHistory';
 
 type Props = {
   goActive: React.Dispatch<React.SetStateAction<string>>
@@ -12,6 +13,8 @@ type Props = {
 export const Deposit = (props: Props) => {
 
   const { user } = useUser()
+
+  const { setHistory } = useHistory()
 
   const { actions, actionsAction, dispatchActions } = useActions()
 
@@ -54,6 +57,7 @@ export const Deposit = (props: Props) => {
             }
 
             actionsAction.changeBalance(user, Number(actions.form.sum), "deposit")
+            setHistory("deposit", Number(actions.form.sum), actions.form.from)
             dispatchActions({ type: "RESET_FORM" })
             props.goActive("")
 

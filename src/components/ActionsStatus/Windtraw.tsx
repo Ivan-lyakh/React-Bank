@@ -4,7 +4,7 @@ import { useActions } from '../../hooks/useActions'
 import { ErrorModal } from '../Error/ErrorModal'
 import { useAccount } from '../../hooks/useAccount'
 import { NumericFormat } from 'react-number-format'
-
+import { useHistory } from '../../hooks/useHistory'
 
 type Props = {
   goActive: React.Dispatch<React.SetStateAction<string>>
@@ -15,6 +15,8 @@ type Props = {
 export const Windtraw = (props: Props) => {
 
   const { user } = useUser()
+
+  const { setHistory } = useHistory()
 
   const { account } = useAccount()
 
@@ -64,6 +66,7 @@ export const Windtraw = (props: Props) => {
               }
 
               actionsAction.changeBalance(user, Number(actions.form.sum), "windtraw")
+              setHistory("windtraw", Number(actions.form.sum), actions.form.from)
               dispatchActions({ type: "RESET_FORM" })
               props.goActive("")
             }

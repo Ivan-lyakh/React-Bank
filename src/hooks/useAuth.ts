@@ -62,6 +62,7 @@ export const useAuth = () => {
 
   const [user, setUser] = useState<null | User>(null)
 
+
   const [loadingUser, setLoadingUser] = useState(true);
 
 
@@ -120,7 +121,6 @@ export const useAuth = () => {
   const stopLoadingUser = () => {
     setLoadingUser(false)
   }
-
 
 
   const handleLogin = async () => {

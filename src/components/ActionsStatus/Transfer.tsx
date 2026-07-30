@@ -5,6 +5,7 @@ import { useActions } from '../../hooks/useActions'
 import { useAccount } from '../../hooks/useAccount'
 import { NumericFormat } from 'react-number-format'
 import { PatternFormat } from 'react-number-format'
+import { useHistory } from '../../hooks/useHistory'
 
 type Props = {
   goActive: React.Dispatch<React.SetStateAction<string>>
@@ -14,6 +15,8 @@ export const Transfer = (props: Props) => {
 
 
   const { user } = useUser()
+
+  const { setHistory } = useHistory()
 
   const { actions, actionsAction, dispatchActions } = useActions()
 
@@ -95,9 +98,10 @@ export const Transfer = (props: Props) => {
 
 
               actionsAction.transfer(user, actions.form.from, Number(actions.form.sum))
+              console.log(actions.form.from)
+              setHistory("transfer", Number(actions.form.sum), actions.form.from)
               dispatchActions({ type: "RESET_FORM" })
               props.goActive("")
-
             }
 
           }
