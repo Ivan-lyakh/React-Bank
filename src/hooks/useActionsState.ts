@@ -71,11 +71,7 @@ const reducer = (state: InitalState, action: Action) => {
 
 export const useActionsState = (account: Account | null, loadAccount: (user: User | null) => Promise<void>) => {
 
-
   const [actions, dispatchActions] = useReducer(reducer, InitalState)
-
-  console.log(actions)
-
 
   const changeBalance = async (user: User | null, value: number, mode: "deposit" | "windtraw") => {
 

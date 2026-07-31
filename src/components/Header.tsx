@@ -19,7 +19,7 @@ export const Header = () => {
 
         <div className={styles.seactionTools}>
           <button onClick={() => navigate("/")} className='button'>Home</button>
-          <button className='button'>History</button>
+          <button onClick={() => navigate("/history")} className='button'>History</button>
         </div>
       </div>
 

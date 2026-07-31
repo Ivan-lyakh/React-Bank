@@ -39,14 +39,16 @@ const reducer = (state: InitialState, action: Action) => {
 }
 
 
-
 export const useHistoryState = (account: Account | null, user: User | null) => {
 
   const [history, dispatchHistory] = useReducer(reducer, initialState)
 
-  console.log(history.history)
 
-  const loadHistory = async () => {
+
+
+  const loadHistory = async (account: Account | null) => {
+
+    console.log("Account number:", account?.account_number);
 
     dispatchHistory({ type: "CHANGE_LOADING", payload: true })
     dispatchHistory({ type: "SET_ERROR", payload: "" })
@@ -54,7 +56,10 @@ export const useHistoryState = (account: Account | null, user: User | null) => {
     const { data, error } = await supabase
       .from("history")
       .select("*")
-      .eq("sender_id", user?.id)
+      .or(
+        `sender_id.eq.${user?.id},recipient_number.eq.${account?.account_number}`
+      );
+
 
     if (error) {
       dispatchHistory({ type: "SET_ERROR", payload: error.message })

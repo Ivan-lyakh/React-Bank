@@ -9,14 +9,14 @@ export const HomePage = () => {
 
   const { user } = useUser()
 
-  const { loadAccount } = useAccount()
+  const { loadAccount, account } = useAccount()
 
   const { loadHistory } = useHistory()
 
   if (user) {
     useEffect(() => {
       loadAccount(user)
-      loadHistory()
+      loadHistory(account.account)
     }, [user])
   }
 
