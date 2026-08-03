@@ -20,7 +20,7 @@ export const ActionDashboard = (props: Props) => {
       <div className={styles.actionsBody}>
         <button onClick={() => props.goActive("transfer")} className='button'><FaPaperPlane />Transfer</button>
         <button onClick={() => props.goActive("deposit")} className='button'><FaPlusCircle />Deposit</button>
-        <button onClick={() => props.goActive("windtraw")} className='button'><FaMinusCircle />Windtraw</button>
+        <button onClick={() => props.goActive("windtraw")} className='button'><FaMinusCircle />Withdraw</button>
         <div className='deativetedBtn'>
           <button
           className='button'

@@ -13,12 +13,17 @@ export const HomePage = () => {
 
   const { loadHistory } = useHistory()
 
-  if (user) {
-    useEffect(() => {
-      loadAccount(user)
-      loadHistory(account.account)
-    }, [user])
-  }
+  useEffect(() => {
+    if (!user) return;
+
+    loadAccount();
+  }, [user]);
+
+  useEffect(() => {
+    if (!account.account) return;
+
+    loadHistory();
+  }, [account.account]);
 
   return <Dashboard />
 

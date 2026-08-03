@@ -1,6 +1,6 @@
-import { useUser } from "../hooks/useUser"
 import { useEffect } from "react"
 import { useAccount } from "../hooks/useAccount"
+import { useUser } from "../hooks/useUser"
 import { useHistory } from "../hooks/useHistory"
 import { AllHistory } from "../components/AllHistory"
 
@@ -9,17 +9,26 @@ export const HistoryPage = () => {
 
   const { user } = useUser()
 
-  const { account, loadAccount } = useAccount()
+  const { loadAccount, account } = useAccount()
 
   const { loadHistory } = useHistory()
 
-  if (user) {
-    useEffect(() => {
-      loadAccount(user)
-      loadHistory(account.account)
-    }, [user])
-  }
+  useEffect(() => {
+    if (!user) return;
+
+    loadAccount();
+  }, [user]);
+
+  useEffect(() => {
+    if (!account.account) return;
+
+    loadHistory();
+  }, [account.account]);
+
 
   return <AllHistory />
 
 }
+
+
+

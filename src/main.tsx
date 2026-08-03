@@ -10,9 +10,9 @@ import App from './App.tsx'
 createRoot(document.getElementById('root')!).render(
   <BrowserRouter>
 
-    <AccountContextProviders>
+    <UsersContextProviders>
 
-      <UsersContextProviders>
+      <AccountContextProviders>
 
         <ActionsContextProvider>
 
@@ -29,9 +29,10 @@ createRoot(document.getElementById('root')!).render(
 
         </ActionsContextProvider>
 
-      </UsersContextProviders>
+      </AccountContextProviders>
 
-    </AccountContextProviders>
+    </UsersContextProviders >
 
-  </BrowserRouter>
+  </BrowserRouter >
 )
+

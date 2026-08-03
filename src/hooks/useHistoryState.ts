@@ -38,17 +38,11 @@ const reducer = (state: InitialState, action: Action) => {
 
 }
 
-
 export const useHistoryState = (account: Account | null, user: User | null) => {
 
   const [history, dispatchHistory] = useReducer(reducer, initialState)
 
-
-
-
-  const loadHistory = async (account: Account | null) => {
-
-    console.log("Account number:", account?.account_number);
+  const loadHistory = async () => {
 
     dispatchHistory({ type: "CHANGE_LOADING", payload: true })
     dispatchHistory({ type: "SET_ERROR", payload: "" })
@@ -60,7 +54,6 @@ export const useHistoryState = (account: Account | null, user: User | null) => {
         `sender_id.eq.${user?.id},recipient_number.eq.${account?.account_number}`
       );
 
-
     if (error) {
       dispatchHistory({ type: "SET_ERROR", payload: error.message })
       dispatchHistory({ type: "CHANGE_LOADING", payload: false })
@@ -69,14 +62,9 @@ export const useHistoryState = (account: Account | null, user: User | null) => {
 
     dispatchHistory({ type: "SET_HISTORY", payload: data ?? [], })
 
-
     dispatchHistory({ type: "CHANGE_LOADING", payload: false })
 
   }
-
-
-
-
 
   const setHistory = async (type: string, sum: number, recipient: string) => {
 
@@ -103,8 +91,31 @@ export const useHistoryState = (account: Account | null, user: User | null) => {
 
   }
 
+  const loadSoloHistory = async (id: number) => {
+
+    dispatchHistory({ type: "CHANGE_LOADING", payload: true })
+    dispatchHistory({ type: "SET_ERROR", payload: "" })
+
+    const { data, error } = await supabase
+      .from("history")
+      .select("*")
+      .eq("id", id)
+      .single();
+
+    if (error) {
+      dispatchHistory({ type: "SET_ERROR", payload: error.message })
+      dispatchHistory({ type: "CHANGE_LOADING", payload: false })
+      console.log(`Error is load solo history: ${error.message}`);
+    }
+
+    dispatchHistory({ type: "CHANGE_LOADING", payload: false })
+
+    return data
+
+  }
 
 
-  return { loadHistory, setHistory, history, dispatchHistory }
+
+  return { loadHistory, setHistory, history, dispatchHistory, loadSoloHistory }
 
 }

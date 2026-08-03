@@ -5,6 +5,7 @@ import { formatNumber } from "../utils/DashboardHelpers"
 import { formatAccountNumber } from "../utils/DashboardHelpers"
 import { FaStar } from "react-icons/fa";
 import { useAccount } from "../hooks/useAccount"
+import { useNavigate } from "react-router-dom"
 
 type Props = {
   data: History
@@ -14,10 +15,10 @@ export const HistoryFromList = (props: Props) => {
 
   const { account } = useAccount()
 
-  console.log(account)
+  const navigate = useNavigate()
 
   return (
-    <div className={styles.table}>
+    <div className={styles.table} onClick={() => navigate(`/history/${props.data.id}`)}>
 
       <div className={styles.section}>
         <h2>{formatDate(props.data.created_at)}</h2>
@@ -29,11 +30,10 @@ export const HistoryFromList = (props: Props) => {
 
       <div className={styles.section}>
         <h2>
-          {props.data.type === "deposit" && <span style={{ color: "green" }}>+{formatNumber(props.data.sum)}€</span> ||
-            props.data.type === "windtraw" && <span style={{ color: "red" }}>-{formatNumber(props.data.sum)}€</span> ||
-            props.data.type === "transfer" && account.account?.account_number === props.data.recipient_number
-            ? <span style={{ color: "green" }}>+{formatNumber(props.data.sum)}€</span>
-            : <span style={{ color: "red" }}>-{formatNumber(props.data.sum)}€</span>}
+          {props.data.type === "windtraw" && <span style={{ color: "red" }} >-{formatNumber(props.data.sum)}€</span> ||
+            props.data.type === "deposit" && <span style={{ color: "green" }} >+{formatNumber(props.data.sum)}€</span> ||
+            props.data.type === "transfer" && account.account?.account_number === props.data.recipient_number && <span style={{ color: "green" }}>+{formatNumber(props.data.sum)}€</span> ||
+            props.data.type === "transfer" && account.account?.account_number !== props.data.recipient_number && <span style={{ color: "red" }}>-{formatNumber(props.data.sum)}€</span>}
 
         </h2>
       </div>

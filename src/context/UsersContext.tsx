@@ -9,7 +9,8 @@ type UserContext = {
   dispatch: React.Dispatch<Action>;
   user: User | null,
   actionsUser: ActionsUser,
-  loadingUser: boolean 
+  loadUsers: () => Promise<void>
+  loadingUser: boolean
 }
 
 export const UsersContext = createContext<UserContext | null>(null)

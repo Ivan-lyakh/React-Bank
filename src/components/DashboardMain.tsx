@@ -23,6 +23,7 @@ export const DashboardMain = () => {
 
         <ActionDashboard
           goActive={setActionActive}
+
         />
 
       </div>

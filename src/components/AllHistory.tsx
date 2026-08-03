@@ -1,11 +1,13 @@
-import { useHistory } from "../hooks/useHistory"
+
 import styles from "../styles/History.module.css"
 import { HistoryFromList } from "./HistoryFromList"
+
 import type { History } from "../types/HistoryTypes"
+import { useHistory } from "../hooks/useHistory"
+
 
 
 export const AllHistory = () => {
-
 
   const { history } = useHistory()
 
@@ -46,7 +48,11 @@ export const AllHistory = () => {
           ?
           <h2>None history</h2>
           : history.history.map((item: History) => {
-            return <HistoryFromList key={item.id} data={item} />
+            return (
+              <HistoryFromList
+                key={item.id}
+                data={item} />
+            )
           })
         }
 

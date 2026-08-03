@@ -54,6 +54,7 @@ const reducer = (state: InitialState, action: Action) => {
 
 }
 
+
 export const useAuth = () => {
 
   const navigate = useNavigate()
@@ -62,25 +63,27 @@ export const useAuth = () => {
 
   const [user, setUser] = useState<null | User>(null)
 
-
   const [loadingUser, setLoadingUser] = useState(true);
 
+  async function loadUsers() {
+    const { data } = await supabase.auth.getUser()
 
-  useEffect(() => {
-    async function loadUsers() {
-      const { data } = await supabase.auth.getUser()
+    if (data.user) {
 
-      if (data.user) {
+      setUser(data.user)
 
-        setUser(data.user)
-
-        setLoadingUser(false);
-
-      }
+      setLoadingUser(false);
 
     }
 
+    console.log("LoadUser")
+
+  }
+
+  useEffect(() => {
+
     loadUsers()
+
   }, [])
 
 
@@ -117,7 +120,6 @@ export const useAuth = () => {
 
   };
 
-
   const stopLoadingUser = () => {
     setLoadingUser(false)
   }
@@ -147,8 +149,6 @@ export const useAuth = () => {
 
   }
 
-
-
   const handleLogout = async () => {
 
     dispatch({ type: "CHANGE_ERROR", payload: "" })
@@ -175,6 +175,6 @@ export const useAuth = () => {
   const actionsUser = { handleRegister, handleLogin, handleLogout, stopLoadingUser }
 
 
-  return { auth, dispatch, user, actionsUser, loadingUser }
+  return { auth, dispatch, user, actionsUser, loadUsers, loadingUser }
 
 }
