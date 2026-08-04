@@ -22,7 +22,7 @@ export const HomePage = () => {
   useEffect(() => {
     if (!account.account) return;
 
-    loadHistory();
+    loadHistory(account.account.account_number);
   }, [account.account]);
 
   return <Dashboard />

@@ -42,7 +42,7 @@ export const useHistoryState = (account: Account | null, user: User | null) => {
 
   const [history, dispatchHistory] = useReducer(reducer, initialState)
 
-  const loadHistory = async () => {
+  const loadHistory = async (accountNumber: string) => {
 
     dispatchHistory({ type: "CHANGE_LOADING", payload: true })
     dispatchHistory({ type: "SET_ERROR", payload: "" })
@@ -51,8 +51,11 @@ export const useHistoryState = (account: Account | null, user: User | null) => {
       .from("history")
       .select("*")
       .or(
-        `sender_id.eq.${user?.id},recipient_number.eq.${account?.account_number}`
+        `sender_id.eq.${user?.id},recipient_number.eq.${accountNumber}`
       );
+
+    console.log("History from Supabase:");
+    console.log(data);
 
     if (error) {
       dispatchHistory({ type: "SET_ERROR", payload: error.message })
@@ -66,8 +69,7 @@ export const useHistoryState = (account: Account | null, user: User | null) => {
 
   }
 
-  const setHistory = async (type: string, sum: number, recipient: string) => {
-
+  const setHistory = async (type: string, sum: number, recipient: string, massage: string) => {
 
     const { error } = await supabase
       .from("history")
@@ -76,9 +78,10 @@ export const useHistoryState = (account: Account | null, user: User | null) => {
         sum: sum,
         sender_name: `${user?.user_metadata.name} ${user?.user_metadata.surename}`,
         sender_number: account?.account_number,
-        status: true,
+        recipient_read: false,
         sender_id: account?.user_id,
-        recipient_number: recipient
+        recipient_number: recipient,
+        message: massage
       });
 
     console.log("History add!")

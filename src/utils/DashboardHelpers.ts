@@ -1,4 +1,6 @@
 import toast from "react-hot-toast";
+import type { History } from "../types/HistoryTypes";
+import { supabase } from "../services/supabase/supabase";
 
 export const handleCopy = async (value: string) => {
   await navigator.clipboard.writeText(value);
@@ -10,6 +12,25 @@ export function formatNumber(number: number): string {
 }
 
 
-export const formatAccountNumber = (accountNumber: string ): string => {
+export const formatAccountNumber = (accountNumber: string): string => {
   return accountNumber.replace(/(.{4})/g, "$1 ").trim();
 };
+
+
+
+
+export const changeStatusRead = async (item: History) => {
+
+  const { error } = await supabase
+    .from("history")
+    .update({ recipient_read: true })
+    .eq("id", item.id)
+
+
+  if (error) {
+    console.log(error);
+    console.log(`Error change status newTrasnfer: ${error}`)
+  }
+
+
+}

@@ -22,6 +22,8 @@ export const Transfer = (props: Props) => {
 
   const { account } = useAccount()
 
+  console.log(actions.form.massege)
+
   return (
     <div className={styles.columnTransfer}>
 
@@ -72,9 +74,10 @@ export const Transfer = (props: Props) => {
       <div className={styles.sections}>
         <div className={styles.message}>
           <textarea
+            maxLength={100}
             value={actions.form.massege}
             onChange={(e) => dispatchActions({ type: "SET_FORM_FIELD", payload: { field: "massege", value: e.target.value } })}
-            placeholder="massege*(optional)"
+            placeholder="massege*(optional) max 100 characters"
           />
         </div>
       </div>
@@ -99,7 +102,7 @@ export const Transfer = (props: Props) => {
 
               actionsAction.transfer(user, actions.form.from, Number(actions.form.sum))
               console.log(actions.form.from)
-              setHistory("transfer", Number(actions.form.sum), actions.form.from)
+              setHistory("transfer", Number(actions.form.sum), actions.form.from, actions.form.massege)
               dispatchActions({ type: "RESET_FORM" })
               props.goActive("")
             }
