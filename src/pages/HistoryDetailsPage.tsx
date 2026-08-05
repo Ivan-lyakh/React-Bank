@@ -27,7 +27,7 @@ export const HistoryDetailsPage = () => {
 
   useEffect(() => {
     if (!account.account) return;
-    loadHistory();
+    loadHistory(account.account.account_number);
   }, [account.account]);
 
   useEffect(() => {

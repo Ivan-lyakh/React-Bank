@@ -8,18 +8,22 @@ export const MainLayout = () => {
 
   return (
 
-    <div className="container">
-      <div className="wrapper">
+    <div className="wrapper">
 
-        <div className="header">
+      <div className="header">
+        <div className="container">
           <Header />
         </div>
+      </div>
 
-        <div className="main">
+      <div className="main">
+        <div className="container">
           <Outlet />
         </div>
+      </div>
 
-        <div className="footer">
+      <div className="footer">
+        <div className="container">
           <Footer />
         </div>
       </div>

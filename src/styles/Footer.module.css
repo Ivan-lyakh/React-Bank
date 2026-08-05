@@ -1,0 +1,50 @@
+.footer {
+  padding: 50px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  align-items: left;
+  justify-content: center;
+  color: #f3e9e9;
+}
+
+.box {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.go {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.boxImg {
+  max-width: 20px;
+  display: flex;
+}
+
+.boxImg img {
+  max-width: 20px;
+}
+
+.go a {
+  color: inherit;
+}
+
+.go:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+
+@media (min-width:768px) {
+  .footer {
+    align-items: center;
+  }
+
+  .box {
+    flex-direction: row;
+  }
+}

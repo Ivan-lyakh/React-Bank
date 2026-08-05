@@ -16,13 +16,13 @@ body {
   font-weight: 600;
 }
 
-.button:hover{
+.button:hover {
   transition: 300ms;
   background-color: #8BB7F0;
   color: #fff;
 }
 
-.deativetedBtn button:hover{
+.deativetedBtn button:hover {
   transition: 300ms;
   background-color: rgba(128, 128, 128, 0.616);
   color: #fff;
@@ -52,17 +52,18 @@ body {
 
 
 .header {
-  flex: 0 0 ;
+  flex: 0 0;
 }
 
-.main{ 
-  flex: 1 1 ;
+.main {
+  flex: 1 1;
   display: flex;
   min-height: 100%;
 }
 
 .footer {
-  flex: 0 0 ;
+  flex: 0 0;
+  background-color: #8BB7F0;
 }
 
 

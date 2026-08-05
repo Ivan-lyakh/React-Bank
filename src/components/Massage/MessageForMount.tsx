@@ -1,7 +1,7 @@
 import { MdCheck } from "react-icons/md";
 import styles from "./Notification.module.css";
 import type { History } from "../../types/HistoryTypes";
-import { changeStatusRead, formatAccountNumber, formatNumber } from "../../utils/DashboardHelpers";
+import { changeStatusRead,  formatNumber } from "../../utils/DashboardHelpers";
 import { formatDate } from "../../utils/HistoryHelpers";
 
 

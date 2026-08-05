@@ -19,9 +19,6 @@ export const HistoryDetails = (props: Props) => {
 
   const { account } = useAccount()
 
-  console.log(account)
-
-  console.log(props.data)
 
 
   if (props.data) {

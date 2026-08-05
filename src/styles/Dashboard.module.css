@@ -11,6 +11,7 @@
   flex-direction: column;
   gap: 35px;
   width: 100%;
+  padding-bottom: 50px;
 }
 
 .body {
@@ -171,11 +172,99 @@
 
 
 
+/*-------------------------------------------------------------------------------LastHistory----------------------------------------------------------------------------*/
 
 
 
-@media(max-width:450px){
-  .hello{
+.lastHistory {
+  border: 2px solid #8BB7F0;
+  border-radius: 10px 10px 0px 0px;
+  height: 370px;
+  transition: 400ms;
+}
+
+.lastHistory:hover {
+  transition: 400ms;
+  transform: scale(1.01);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, .15);
+}
+
+.lastHistoryHeader {
+  font-size: 25px;
+  background-color: #8BB7F0;
+  color: #f3e9e9;
+  padding: 20px;
+  font-weight: 700;
+}
+
+
+.lastHistoryBody {
+  padding: 20px;
+  height: 250px;
+}
+
+
+
+
+.list {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.list li {
+  padding: 12px 0px;
+  display: grid;
+  min-width: 100%;
+  grid-template-columns: 1fr 1fr 1fr;
+  transition: 300ms;
+}
+
+.list li:hover {
+  background-color: #8BB7F0;
+  color: #f3e9e9;
+  transition: 300ms;
+  transform: scale(1.01);
+}
+
+
+.sectionList {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 500;
+}
+
+.sectionList h2 {
+  display: flex;
+  gap: 10px;
+}
+
+.button {
+  padding: 5px 10px;
+  transition: 300ms;
+  border-radius: 10px;
+  font-weight: 600;
+}
+
+.button:hover {
+  transition: 300ms;
+  background-color: #8BB7F0;
+  color: #fff;
+  border: 1px solid #f3e9e9;
+}
+
+
+/*-------------------------------------------------------------------------------LastHistory----------------------------------------------------------------------------*/
+
+
+
+
+
+@media(max-width:450px) {
+  .hello {
     text-align: left;
   }
 }
@@ -184,12 +273,24 @@
   .body {
     display: block;
   }
+
+  .lastHistoryHeader {
+    padding: 20px 30px;
+  }
+
+  .lastHistoryBody {
+    padding: 20px 30px;
+  }
 }
 
 
 @media (min-width: 900px) {
   .dashboard {
     display: block;
+  }
+
+  .lastHistory {
+    margin-top: 50px;
   }
 
   .column {
@@ -217,6 +318,14 @@
 @media(min-width:1200px) {
   .main {
     padding-top: 50px;
+  }
+
+  .lastHistoryHeader {
+    padding: 20px 40px;
+  }
+
+  .lastHistoryBody {
+    padding: 20px 40px;
   }
 
   .column {
