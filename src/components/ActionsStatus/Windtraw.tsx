@@ -66,7 +66,7 @@ export const Windtraw = (props: Props) => {
               }
 
               actionsAction.changeBalance(user, Number(actions.form.sum), "windtraw")
-              setHistory("windtraw", Number(actions.form.sum), actions.form.from)
+              setHistory("windtraw", Number(actions.form.sum), actions.form.from , "")
               dispatchActions({ type: "RESET_FORM" })
               props.goActive("")
             }
@@ -77,7 +77,7 @@ export const Windtraw = (props: Props) => {
       </div>
 
       <div className={styles.sections}>
-        <h2>Ensure that you have sufficient funds in your account to complete the transaction.</h2>
+        <h2 className='textModalInside'>Ensure that you have sufficient funds in your account to complete the transaction.</h2>
       </div>
     </div>
   )

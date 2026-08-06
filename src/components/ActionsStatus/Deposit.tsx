@@ -57,7 +57,7 @@ export const Deposit = (props: Props) => {
             }
 
             actionsAction.changeBalance(user, Number(actions.form.sum), "deposit")
-            setHistory("deposit", Number(actions.form.sum), actions.form.from)
+            setHistory("deposit", Number(actions.form.sum), actions.form.from , "")
             dispatchActions({ type: "RESET_FORM" })
             props.goActive("")
 
@@ -67,7 +67,7 @@ export const Deposit = (props: Props) => {
       </div>
 
       <div className={styles.sections}>
-        <h2>The maximum deposit amount is €50,000 per transaction!</h2>
+        <h2 className='textModalInside'>The maximum deposit amount is €50,000 per transaction!</h2>
       </div>
     </div>
   )

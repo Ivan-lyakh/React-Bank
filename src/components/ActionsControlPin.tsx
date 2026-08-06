@@ -19,7 +19,7 @@ export const ActionsPIN = (props: Props) => {
 
       {account.error && <ErrorModal message={account.error} />}
 
-      <h2 className="text">For your safety and to verify your identity, please enter your account PIN.</h2>
+      <h2 className="textModalInside">For your safety and to verify your identity, please enter your account PIN.</h2>
 
       <input
         value={value}

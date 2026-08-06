@@ -1,5 +1,6 @@
 import styles from '../styles/ActionsModal.module.css'
 import closedIcon from '../images/closed.png'
+import closedIconWhite from '../images/closedWhite.png'
 import { Transfer } from './ActionsStatus/Transfer'
 import { Deposit } from './ActionsStatus/Deposit'
 import { Windtraw } from './ActionsStatus/Windtraw'
@@ -7,6 +8,7 @@ import { Loan } from './ActionsStatus/Load'
 import { useState } from 'react'
 import { ActionsPIN } from './ActionsControlPin'
 import { title } from '../utils/ActionModalHellpers'
+import { useTheme } from '../hooks/useTheme'
 
 type Props = {
   status: string
@@ -14,6 +16,8 @@ type Props = {
 }
 
 export const ActionsModal = (props: Props) => {
+
+  const { theme } = useTheme()
 
   const [security, setSecurity] = useState(true)
 
@@ -29,7 +33,10 @@ export const ActionsModal = (props: Props) => {
           </div>
 
           <div className={styles.closed}>
-            <img onClick={() => props.goActive("")} src={closedIcon} alt="#" />
+            {theme === "light"
+              ? <img onClick={() => props.goActive("")} src={closedIcon} alt="#" />
+              : <img onClick={() => props.goActive("")} src={closedIconWhite} alt="#" />
+            }
           </div>
 
           <div>

@@ -1,5 +1,5 @@
 .main {
-  background-color: #F8FAFC;
+  background-color: var(--bg-color);
   min-height: 100vh;
 }
 
@@ -12,7 +12,7 @@
   gap: 100px;
 }
 
-.innerContainer{
+.innerContainer {
   display: flex;
   flex-direction: column;
   gap: 25px;
@@ -30,13 +30,13 @@
   border-radius: 10px;
 }
 
-.card:hover{
+.card:hover {
   transition: 400ms;
   transform: scale(1.01);
-  box-shadow: 0 10px 25px rgba(0,0,0,.05);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, .05);
 }
 
-.card h2{
+.card h2 {
   text-align: center;
   line-height: 150%;
 }
@@ -52,12 +52,12 @@
   color: #8BB7F0;
 }
 
-.header h2{
+.header h2 {
   line-height: 150%;
 }
 
 
-.modeColumn{
+.modeColumn {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -65,9 +65,10 @@
   justify-content: space-between;
 }
 
-.modeColumn h2{
+.modeColumn h2 {
   font-size: 20px;
   font-weight: 700;
+  color: var(--text-color);
 }
 
 .modeColumn input {
@@ -83,7 +84,7 @@
   gap: 50px;
 }
 
-.modeBody{
+.modeBody {
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -95,7 +96,7 @@
   align-items: center;
 }
 
-.togglePass{
+.togglePass {
   position: absolute;
   max-width: 20px;
   cursor: pointer;
@@ -104,18 +105,19 @@
 
 
 
-@media (min-width: 1200px){
-  .header{
+@media (min-width: 1200px) {
+  .header {
     flex-direction: row;
   }
 }
 
 
-@media (min-width:769px){
-  .modeColumn{
+@media (min-width:769px) {
+  .modeColumn {
     flex-direction: row;
   }
-  .modeBody{
+
+  .modeBody {
     gap: 30px;
   }
 }

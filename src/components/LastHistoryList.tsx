@@ -46,10 +46,10 @@ export const LastHistoryList = () => {
         return (
           <li key={item.id}>
             <div className={styles.sectionList}>
-              {item.type === "transfer" && <h2>Transfer <FaPaperPlane /></h2>}
-              {item.type === "deposit" && <h2>Deposit <FaPlusCircle /></h2>}
-              {item.type === "windtraw" && <h2>Withdraw <FaMinusCircle /></h2>}
-              {item.type === "loan" && <h2>Loan <FaHandHoldingUsd /></h2>}
+              {item.type === "transfer" && <h2 className="text">Transfer <FaPaperPlane /></h2>}
+              {item.type === "deposit" && <h2 className="text">Deposit <FaPlusCircle /></h2>}
+              {item.type === "windtraw" && <h2 className="text">Withdraw <FaMinusCircle /></h2>}
+              {item.type === "loan" && <h2 className="text">Loan <FaHandHoldingUsd /></h2>}
             </div>
             <div className={styles.sectionList}>
               {item.type === "transfer" && item.recipient_number === account.account?.account_number && <h2 style={{ color: "green" }}>+{formatNumber(item.sum)}€</h2>}

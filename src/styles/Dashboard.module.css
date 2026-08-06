@@ -3,7 +3,7 @@
 }
 
 .hello h2 span {
-  color: #8BB7F0;
+  color: var(--hello-color);
 }
 
 .main {
@@ -41,7 +41,7 @@
 }
 
 .card {
-  background-color: #8BB7F0;
+  background-color: var(--card-color);
   padding: 20px;
   max-width: 350px;
   display: flex;
@@ -135,7 +135,7 @@
 }
 
 .actionsHeader {
-  background-color: #8BB7F0;
+  background-color: var(--card-color);
   border-radius: 10px 10px 0px 0px;
 }
 
@@ -145,7 +145,7 @@
 }
 
 .actionsBody {
-  border: 2px solid #8BB7F0;
+  border: 2px solid var(--card-color);
   padding: 30px 20px;
   display: flex;
   gap: 20px;
@@ -177,7 +177,7 @@
 
 
 .lastHistory {
-  border: 2px solid #8BB7F0;
+  border: 2px solid var(--card-color);
   border-radius: 10px 10px 0px 0px;
   height: 370px;
   transition: 400ms;
@@ -191,7 +191,7 @@
 
 .lastHistoryHeader {
   font-size: 25px;
-  background-color: #8BB7F0;
+  background-color: var(--card-color);
   color: #f3e9e9;
   padding: 20px;
   font-weight: 700;
@@ -223,7 +223,7 @@
 }
 
 .list li:hover {
-  background-color: #8BB7F0;
+  background-color: var(--card-color);
   color: #f3e9e9;
   transition: 300ms;
   transform: scale(1.01);
@@ -247,12 +247,14 @@
   transition: 300ms;
   border-radius: 10px;
   font-weight: 600;
+  color: var(--button-color-);
+  background-color: var(--button-color-bg);
 }
 
 .button:hover {
   transition: 300ms;
-  background-color: #8BB7F0;
-  color: #fff;
+  background-color: var(--button-color-bg-hover);
+  color: var(--button-color-hover);
   border: 1px solid #f3e9e9;
 }
 

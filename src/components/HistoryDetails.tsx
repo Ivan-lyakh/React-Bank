@@ -27,7 +27,7 @@ export const HistoryDetails = (props: Props) => {
       <div className={styles.mainDetails}>
 
         <div className={styles.id}>
-          <h3>Transaction #{props.data.id}</h3>
+          <h3 className='textModalInside'>Transaction #{props.data.id}</h3>
         </div>
 
         <div className={styles.details}>

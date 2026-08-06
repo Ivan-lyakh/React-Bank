@@ -5,6 +5,10 @@
   transition: 400ms;
 }
 
+.main {
+  padding-bottom: 50px;
+}
+
 .section {
   display: flex;
   align-items: center;
@@ -16,6 +20,7 @@
   padding: 20px 0px;
   min-height: 70px;
   cursor: pointer;
+  color: var(--text-color);
 }
 
 .plus {
@@ -27,7 +32,7 @@
 }
 
 .table:hover {
-  background-color: #8BB7F0;
+  background-color: var(--card-color);
   color: #fff;
   transition: 400ms;
   transform: scale(1.01);
@@ -35,7 +40,7 @@
 }
 
 .header {
-  border-bottom: 2px solid #8BB7F0;
+  border-bottom: 2px solid var(--card-color);
 }
 
 .table {
@@ -64,10 +69,11 @@
   align-items: center;
   width: 100%;
   gap: 20px;
+  padding-bottom: 50px;
 }
 
 .details {
-  background-color: #8BB7F0;
+  background-color: var(--card-color);
   padding: 90px 20px;
   width: 100%;
   max-width: 700px;

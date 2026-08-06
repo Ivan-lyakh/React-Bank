@@ -26,6 +26,11 @@ export const Dashboard = () => {
 
   const { actions } = useActions()
 
+  console.log(localStorage)
+
+  localStorage.setItem("theme", "dark")
+
+
   useEffect(() => {
     if (!account.account) return;
     loadHistory(account.account.account_number);

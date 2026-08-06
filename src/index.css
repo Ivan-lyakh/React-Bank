@@ -1,6 +1,6 @@
 body {
   font-family: "IBM Plex Sans", sans-serif;
-  background-color: inherit;
+  background: var(--bg-color);
 }
 
 .container {
@@ -14,12 +14,14 @@ body {
   transition: 300ms;
   border-radius: 10px;
   font-weight: 600;
+  color: var(--button-color-);
+  background-color: var(--button-color-bg);
 }
 
 .button:hover {
   transition: 300ms;
-  background-color: #8BB7F0;
-  color: #fff;
+  background-color: var(--button-color-bg-hover);
+  color: var(--button-color-hover)
 }
 
 .deativetedBtn button:hover {
@@ -31,15 +33,31 @@ body {
 
 
 .title {
-  color: #111827;
+  color: var(--text-color);
   font-size: 34px;
   text-align: center;
   font-weight: 700;
 }
 
+.titleModal {
+  color: var(--modal-color);
+  font-size: 34px;
+  text-align: center;
+  font-weight: 700;
+}
 
 .text {
-  color: #111827;
+  color: var(--text-color);
+  font-size: 17px;
+}
+
+.textModal {
+  color: var(--modal-color);
+  font-size: 17px;
+}
+
+.textModalInside {
+  color: var(--modal-color-inside);
   font-size: 17px;
 }
 
@@ -63,7 +81,7 @@ body {
 
 .footer {
   flex: 0 0;
-  background-color: #8BB7F0;
+  background-color: var(--card-color);
 }
 
 

@@ -114,7 +114,7 @@ export const Transfer = (props: Props) => {
       </div>
 
       <div className={styles.sections}>
-        <h2>Ensure that you have sufficient funds in your account to complete the transaction.</h2>
+        <h2 className='textModalInside'>Ensure that you have sufficient funds in your account to complete the transaction.</h2>
       </div>
     </div>
   )

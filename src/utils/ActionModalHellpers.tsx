@@ -12,19 +12,19 @@ export const title = (value: string) => {
   switch (value) {
 
     case "transfer": {
-      return <h2 style={{ display: "flex", alignItems: "center", gap: "10px", paddingTop: "5px" }} className="title">Transfer<FaPaperPlane /></h2>
+      return <h2 style={{ display: "flex", alignItems: "center", gap: "10px", paddingTop: "5px" }} className="titleModal">Transfer<FaPaperPlane /></h2>
     }
 
     case "deposit": {
-      return <h2 style={{ display: "flex", alignItems: "center", gap: "10px", paddingTop: "5px" }} className="title">Deposit<FaPlusCircle /></h2>
+      return <h2 style={{ display: "flex", alignItems: "center", gap: "10px", paddingTop: "5px" }} className="titleModal">Deposit<FaPlusCircle /></h2>
     }
 
     case "windtraw": {
-      return <h2 style={{ display: "flex", alignItems: "center", gap: "10px", paddingTop: "5px" }} className="title">Windtraw<FaMinusCircle /></h2>
+      return <h2 style={{ display: "flex", alignItems: "center", gap: "10px", paddingTop: "5px" }} className="titleModal">Windtraw<FaMinusCircle /></h2>
     }
 
     case "loan": {
-      return <h2 style={{ display: "flex", alignItems: "center", gap: "10px", paddingTop: "5px" }} className="title">Loan<FaHandHoldingUsd /></h2>
+      return <h2 style={{ display: "flex", alignItems: "center", gap: "10px", paddingTop: "5px" }} className="titleModal">Loan<FaHandHoldingUsd /></h2>
     }
 
   }
