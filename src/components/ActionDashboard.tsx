@@ -23,9 +23,8 @@ export const ActionDashboard = (props: Props) => {
         <button onClick={() => props.goActive("windtraw")} className='button'><FaMinusCircle />Withdraw</button>
         <div className='deativetedBtn'>
           <button
-          className='button'
-          disabled
-          onClick={() => props.goActive("loan")} ><FaHandHoldingUsd />Get a loan</button>
+            disabled
+            onClick={() => props.goActive("loan")} ><FaHandHoldingUsd />Get a loan</button>
         </div>
       </div>
 

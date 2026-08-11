@@ -11,7 +11,8 @@
   --button-color-bg: #f3e9e9;
   --button-color-bg-hover: #8fb7ee;
   --backgroundIcon: inherit;
-  --hello-color: #8fb7ee
+  --hello-color: #8fb7ee;
+  --button-background-setedingModal: #f3e9e9;
 }
 
 
@@ -29,4 +30,5 @@
   --backgroundIcon: #818181;
   --button-color-bg-hover: #575656;
   --hello-color: #f3e9e9;
+  --button-background-setedingModal: #f3e9e9;
 }

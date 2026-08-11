@@ -17,8 +17,6 @@ export const formatAccountNumber = (accountNumber: string): string => {
 };
 
 
-
-
 export const changeStatusRead = async (item: History) => {
 
   const { error } = await supabase
@@ -34,3 +32,10 @@ export const changeStatusRead = async (item: History) => {
 
 
 }
+
+
+export const validateName = (name: string): boolean => {
+  return name.length >= 2 && /^[\p{L}]+$/u.test(name);
+};
+
+

@@ -76,8 +76,6 @@ export const useAuth = () => {
 
     }
 
-    console.log("LoadUser")
-
   }
 
   useEffect(() => {

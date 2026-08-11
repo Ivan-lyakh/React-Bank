@@ -36,7 +36,7 @@ export const LastHistoryList = () => {
 
   if (list.length === 0) {
     return (
-      <h2>You haven't had any transactions yet.</h2>
+      <h2 className="text">You haven't had any transactions yet.</h2>
     )
   }
 

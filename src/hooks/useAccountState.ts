@@ -81,9 +81,6 @@ export const useAccountState = (user: User | null) => {
 
       setAccoutLoading(false)
 
-      console.log("LoadAccount")
-
-      console.log(account.account)
 
     }
 

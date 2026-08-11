@@ -24,11 +24,16 @@ body {
   color: var(--button-color-hover)
 }
 
-.deativetedBtn button:hover {
+
+.deativetedBtn button {
+  padding: 10px 15px;
+  font-size: 17px;
   transition: 300ms;
-  background-color: rgba(128, 128, 128, 0.616);
-  color: #fff;
+  border-radius: 10px;
+  font-weight: 600;
+  transition: 300ms;
 }
+
 
 
 

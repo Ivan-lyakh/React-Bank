@@ -1,0 +1,172 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(4px);
+
+  z-index: 9999;
+}
+
+.errorBox {
+  width: 420px;
+
+  background: #1d1d1d;
+
+  border-radius: 20px;
+
+  padding: 35px 25px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  gap: 18px;
+
+  box-shadow:
+    0 20px 50px rgba(0, 0, 0, .45);
+}
+
+.icon {
+  width: 70px;
+  height: 70px;
+
+  border-radius: 50%;
+
+  background: orange;
+
+  color: white;
+
+  font-size: 38px;
+  font-weight: bold;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  box-shadow:
+    0 0 20px orange;
+}
+
+.iconDone {
+  width: 70px;
+  height: 70px;
+
+  border-radius: 50%;
+
+  background: green;
+
+  color: white;
+
+  font-size: 38px;
+  font-weight: bold;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  box-shadow:
+    0 0 20px green;
+}
+
+.errorBox h2 {
+  color: white;
+  font-size: 28px;
+}
+
+.errorBox p {
+  color: #d0d0d0;
+
+  text-align: center;
+
+  line-height: 1.5;
+}
+
+
+.input {
+  padding: 10px 15px;
+}
+
+.pinBody {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  align-items: center;
+}
+
+
+
+
+
+
+/*---------------------------------------------------------------------------------EditMode------------------------------------------------------------------*/
+
+
+.edit {
+  position: relative;
+}
+
+.headerEdit {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 25px;
+  padding-top: 25px;
+}
+
+.editBody {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+
+.editSectioins {
+  display: flex;
+  flex: 100%;
+  justify-content: space-between;
+  gap: 15px;
+  align-items: center;
+}
+
+.editSectioins h2 {
+  font-size: 17px;
+}
+
+.closed {
+  width: 40px;
+  position: absolute;
+  right: -20px;
+  top: -20px;
+  cursor: pointer;
+  transition: 400ms;
+}
+
+.closed img {
+  position: absolute;
+  max-width: 100%;
+}
+
+
+.openEditColumn {
+  padding-top: 40px;
+  display: flex;
+  gap: 20px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.openEditColumn input {
+  font-size: 18px;
+  padding: 7px 15px;
+  border-radius: 5px;
+}
+
+.subtitle{
+  text-align: left;
+}
+
+/*---------------------------------------------------------------------------------EditMode------------------------------------------------------------------*/

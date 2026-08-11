@@ -4,11 +4,12 @@ import { useActions } from "../../hooks/useActions";
 import { useUser } from "../../hooks/useUser";
 import styles from "./Error.module.css";
 
+
 type Props = {
   message: string;
 };
 
-export const ErrorModal = ({ message }: Props) => {
+export const ErrorModal = (props: Props) => {
 
   const navigate = useNavigate()
 
@@ -26,12 +27,12 @@ export const ErrorModal = ({ message }: Props) => {
 
         <h2>Error</h2>
 
-        <p>{message}</p>
+        <p>{props.message}</p>
 
         <button
           onClick={() => {
 
-            if (message === "History not found!") {
+            if (props.message === "History not found!") {
               navigate("/history")
             }
 

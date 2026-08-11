@@ -144,7 +144,7 @@ export const AuthMode = (props: Props) => {
         }}
 
       >
-        {props.mode === "auth" ? "Войти!" : "Открыть счет!"}
+        {props.mode === "auth" ? "Login!" : "Open an account!!"}
       </button>
 
     </div>

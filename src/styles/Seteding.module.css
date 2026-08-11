@@ -1,0 +1,56 @@
+.seteding {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+  padding: 50px 0px;
+}
+
+.setedingCoulumn {
+  flex: 100%;
+  background-color: var(--card-color);
+  padding: 30px 20px;
+  width: 100%;
+}
+
+.columnHeader h2 {
+  font-weight: 700;
+  font-size: 25px;
+  padding-bottom: 30px;
+}
+
+.columnButton {
+  background-color: var(--button-background-setedingModal);
+  padding: 5px 15px;
+  border-radius: 5px;
+  font-weight: 500;
+}
+
+
+
+.bodyColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+
+@media (min-width: 415px) {
+  .setedingCoulumn {
+    width: 400px;
+  }
+}
+
+@media (min-width:1300px) {
+  .seteding {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    padding: 50px 0px;
+    height: 100%;
+  }
+
+  .setedingCoulumn {
+    height: 240px
+  }
+}
