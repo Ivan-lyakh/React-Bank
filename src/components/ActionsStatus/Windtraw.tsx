@@ -5,6 +5,7 @@ import { ErrorModal } from '../Error/ErrorModal'
 import { useAccount } from '../../hooks/useAccount'
 import { NumericFormat } from 'react-number-format'
 import { useHistory } from '../../hooks/useHistory'
+import { useTranslation } from 'react-i18next'
 
 type Props = {
   goActive: React.Dispatch<React.SetStateAction<string>>
@@ -13,6 +14,8 @@ type Props = {
 
 
 export const Windtraw = (props: Props) => {
+
+  const { t } = useTranslation()
 
   const { user } = useUser()
 
@@ -35,7 +38,7 @@ export const Windtraw = (props: Props) => {
           thousandSeparator
           decimalScale={0}
           allowNegative={false}
-          placeholder="sum windtraw"
+          placeholder={t("removal.placeholder")}
           onValueChange={(values) =>
             dispatchActions({
               type: "SET_FORM_FIELD",
@@ -54,30 +57,30 @@ export const Windtraw = (props: Props) => {
             if (account.account) {
 
               if (account.account.balance < Number(actions.form.sum)) {
-                dispatchActions({ type: "SET_ERROR", payload: "Insufficient funds to complete the transaction!" })
+                dispatchActions({ type: "SET_ERROR", payload: t("removal.errorBigRemoval") })
                 dispatchActions({ type: "RESET_FORM" })
                 return
               }
 
               if (Number(actions.form.sum) === 0) {
-                dispatchActions({ type: "SET_ERROR", payload: "To ensure the operation succeeds, do not leave the fields blank!" })
+                dispatchActions({ type: "SET_ERROR", payload: t("transfer.errorBlank") })
                 dispatchActions({ type: "RESET_FORM" })
                 return
               }
 
               actionsAction.changeBalance(user, Number(actions.form.sum), "windtraw")
-              setHistory("windtraw", Number(actions.form.sum), actions.form.from , "")
+              setHistory("windtraw", Number(actions.form.sum), actions.form.from, "")
               dispatchActions({ type: "RESET_FORM" })
               props.goActive("")
             }
 
           }}
-        >Windtraw
+        >{t("removal.btn")}
         </button>
       </div>
 
       <div className={styles.sections}>
-        <h2 className='textModalInside'>Ensure that you have sufficient funds in your account to complete the transaction.</h2>
+        <h2 className='textModalInside'>{t("removal.lastTitle")}</h2>
       </div>
     </div>
   )

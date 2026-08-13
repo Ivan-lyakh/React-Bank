@@ -10,6 +10,7 @@ import { FaPlusCircle } from "react-icons/fa";
 import { FaMinusCircle } from "react-icons/fa";
 import { FaHandHoldingUsd } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 
 export const LastHistoryList = () => {
@@ -19,6 +20,8 @@ export const LastHistoryList = () => {
   const { account } = useAccount()
 
   const [list, setList] = useState<History[]>([])
+
+  const { t } = useTranslation()
 
   const navigate = useNavigate()
 
@@ -36,7 +39,7 @@ export const LastHistoryList = () => {
 
   if (list.length === 0) {
     return (
-      <h2 className="text">You haven't had any transactions yet.</h2>
+      <h2 className="text">{t("lastHistory.listClear")}</h2>
     )
   }
 
@@ -46,9 +49,9 @@ export const LastHistoryList = () => {
         return (
           <li key={item.id}>
             <div className={styles.sectionList}>
-              {item.type === "transfer" && <h2 className="text">Transfer <FaPaperPlane /></h2>}
-              {item.type === "deposit" && <h2 className="text">Deposit <FaPlusCircle /></h2>}
-              {item.type === "windtraw" && <h2 className="text">Withdraw <FaMinusCircle /></h2>}
+              {item.type === "transfer" && <h2 className="text">{t("actionDashboard.transfer")} <FaPaperPlane /></h2>}
+              {item.type === "deposit" && <h2 className="text">{t("actionDashboard.deposit")} <FaPlusCircle /></h2>}
+              {item.type === "windtraw" && <h2 className="text">{t("actionDashboard.withdraw")} <FaMinusCircle /></h2>}
               {item.type === "loan" && <h2 className="text">Loan <FaHandHoldingUsd /></h2>}
             </div>
             <div className={styles.sectionList}>
@@ -58,7 +61,7 @@ export const LastHistoryList = () => {
               {item.type === "windtraw" && <h2 style={{ color: "red" }}>-{formatNumber(item.sum)}€</h2>}
             </div>
             <div className={styles.sectionList}>
-              <button onClick={() => navigate(`/history/${item.id}`)} className={styles.button}>show more</button>
+              <button onClick={() => navigate(`/history/${item.id}`)} className={styles.button}>{t("lastHistory.btn")}</button>
             </div>
           </li>
         )

@@ -1,12 +1,15 @@
 import { MdCheck } from "react-icons/md";
 import styles from "./Notification.module.css";
 import { useActions } from "../../hooks/useActions";
+import { useTranslation } from "react-i18next";
 
 type Props = {
   message: string;
 };
 
 export const MassegeModal = ({ message }: Props) => {
+
+  const { t } = useTranslation()
 
   const { dispatchActions } = useActions()
 
@@ -19,7 +22,7 @@ export const MassegeModal = ({ message }: Props) => {
           <MdCheck color="white" />
         </div>
 
-        <h2>Notification</h2>
+        <h2>{t("notificationModal.title")}</h2>
 
         <p>{message}</p>
 

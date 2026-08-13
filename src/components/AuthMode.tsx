@@ -5,6 +5,7 @@ import open from '../images/openEayes.png'
 import { useUser } from '../hooks/useUser'
 import { Loading } from './Loading/Loading'
 import { ErrorModal } from './Error/ErrorModal'
+import { useTranslation } from 'react-i18next'
 
 type Props = {
   mode: string
@@ -15,6 +16,8 @@ export const AuthMode = (props: Props) => {
   const [secretPassword, setSecretPassword] = useState(true)
 
   const { auth, dispatch, actionsUser } = useUser()
+
+  const { t } = useTranslation();
 
 
   if (auth.loading) {
@@ -36,7 +39,7 @@ export const AuthMode = (props: Props) => {
       <div className={styles.modeBody}>
 
         <div className={styles.modeColumn}>
-          <h2>Email:</h2>
+          <h2>{t("common.email")}:</h2>
           <input
             type="email"
             value={auth.form.email}
@@ -50,7 +53,7 @@ export const AuthMode = (props: Props) => {
         </div>
 
         <div className={styles.modeColumn}>
-          <h2>Password:</h2>
+          <h2>{t("common.password")}:</h2>
 
           <div className={styles.passBody}>
             <input
@@ -76,7 +79,7 @@ export const AuthMode = (props: Props) => {
         {props.mode === "register" && (
           <>
             <div className={styles.modeColumn}>
-              <h2>Name:</h2>
+              <h2>{t("auth.name")}:</h2>
 
               <input
                 type="text"
@@ -91,7 +94,7 @@ export const AuthMode = (props: Props) => {
             </div>
 
             <div className={styles.modeColumn}>
-              <h2>Surname:</h2>
+              <h2>{t("auth.surname")}:</h2>
 
               <input
                 type="text"
@@ -106,7 +109,7 @@ export const AuthMode = (props: Props) => {
             </div>
 
             <div className={styles.modeColumn}>
-              <h2>Age:</h2>
+              <h2>{t("auth.age")}:</h2>
 
               <input
                 type="number"
@@ -128,12 +131,16 @@ export const AuthMode = (props: Props) => {
         className="button"
         onClick={() => {
           if (props.mode === "register") {
+            if (auth.form.password.length < 6) {
+              dispatch({ type: "CHANGE_ERROR", payload: t("error.authShortPassword") })
+              return
+            }
             if (!auth.form.name) {
-              dispatch({ type: "CHANGE_ERROR", payload: " Do not leave the fields blank! " })
+              dispatch({ type: "CHANGE_ERROR", payload: t("error.authEmptyField") })
               return
             }
             if (!auth.form.age) {
-              dispatch({ type: "CHANGE_ERROR", payload: " Do not leave the fields blank! " })
+              dispatch({ type: "CHANGE_ERROR", payload: t("error.authEmptyField") })
               return
             }
             actionsUser.handleRegister();
@@ -144,7 +151,7 @@ export const AuthMode = (props: Props) => {
         }}
 
       >
-        {props.mode === "auth" ? "Login!" : "Open an account!!"}
+        {t(props.mode === "auth" ? "auth.btnLogin" : "auth.btnRegister")}
       </button>
 
     </div>

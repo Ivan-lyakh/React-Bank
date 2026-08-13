@@ -1,0 +1,154 @@
+{
+  "auth": {
+    "hello": "Welcome to",
+    "titleRegister": "If you are visiting us for the first time, click the button to open an account with our bank!",
+    "btnRegister": "Open an account!",
+    "titleLogin": "If you are already a customer, you can log in right now without any issues!",
+    "btnLogin": "Login",
+    "name": "Name",
+    "surname": "Surname",
+    "age": "Age"
+  },
+  "common": {
+    "email": "Email",
+    "password": "Password"
+  },
+  "header": {
+    "home": "Home",
+    "history": "History"
+  },
+  "cardDashboard": {
+    "account": "Main account",
+    "balance": "Balance" ,
+    "copyMassege": "Card number copied to your clipboard"
+  },
+  "actionDashboard": {
+    "title": "Tools",
+    "transfer": "Transfer",
+    "deposit": "Deposit",
+    "withdraw": "Removal",
+    "loan": "Get a loan"
+  },
+  "dashboard": {
+    "hello": "Welcom",
+    "massegeDoneTransActions": "Your transaction was successfully completed!"
+  },
+  "lastHistory": {
+    "title": "You 5 last history!",
+    "btn": "show more",
+    "listClear": "You haven't had any transactions yet."
+  },
+  "actionsControlPin": {
+    "title": "For your safety and to verify your identity, please enter your account PIN.",
+    "btn": "Control",
+    "error": "PIN is not corrected, please try again!"
+  },
+  "transfer": {
+    "placeholder1": "transfer sum",
+    "placeholder2": "number for transfer",
+    "placeholder3": "massege*( optional ) max 100 characters",
+    "errorBalance": "Insufficient funds to complete the transaction!",
+    "errorBlank": "To ensure the operation succeeds, do not leave the fields blank!",
+    "lastTitle": "Ensure that you have sufficient funds in your account to complete the transaction."
+  },
+  "deposit": {
+    "placeholder": "sum deposit",
+    "btn": "Deposit",
+    "lastTitle": "The maximum deposit amount is €50,000 per transaction!"
+  },
+  "removal": {
+    "placeholder": "sum removal",
+    "btn": "Removal",
+    "lastTitle": "Ensure that you have sufficient funds in your account to complete the transaction.",
+    "errorBigRemoval": "Insufficient funds to complete the transaction!"
+  },
+  "notificationModal": {
+    "title": "Notification"
+  },
+  "messageFromMount": {
+    "title": "Incoming transfer",
+    "from": "From",
+    "date": "Date",
+    "btn": "Continue",
+    "massage": "New Transfer!"
+  },
+  "allHistory": {
+    "date": "Date",
+    "type": "Type",
+    "sum": "Sum",
+    "sender": "Sender",
+    "recipient": "Recipient",
+    "listClear": "You haven't had any transactions yet.",
+    "you": "You"
+  },
+  "historyDetails": {
+    "transactions": "Transaction",
+    "date": "Date",
+    "accountNumber": "Account number"
+  },
+  "seteding": {
+    "user": "User",
+    "account": "Account",
+    "systems": "Systems",
+    "name": "Name",
+    "surname": "Surname",
+    "email": "Email",
+    "accountNumber": "Account number",
+    "createDate": "Create date",
+    "btnUser": "Edit details",
+    "btnAccount": "Show PIN",
+    "btnTheme": "Theme",
+    "btnLeng": "Language",
+    "btnLogout": "Logout",
+    "light": "Light",
+    "dark": "Dark"
+  },
+  "setedingModal": {
+    "titlePin": "Verify Password",
+    "btnPin": "Control",
+    "placeholderPin": "Enter you password",
+    "errorPin": "Password is not corrected!",
+    "changeTitle": "Changes to information",
+    "changePassword": "Change password",
+    "changeBtn": "Change",
+    "youPin": "Your PIN-code"
+  },
+  "editMode": {
+    "doneName": "User data successfully updated!",
+    "doneSurName": "User data successfully updated!",
+    "doneEmail": "To complete the email change, follow the link sent to your new email address.",
+    "donePassword": "The password has been successfully changed!",
+    "errorData": "New data is not correcnted!",
+    "errorEmailReg": "This email is already being used in our system!",
+    "errorConfirmPassword": "Make sure the same password is entered in both fields!",
+    "errorPass": "New password is not correct!",
+    "nameTitle": "Please enter the new desired name:",
+    "nameSubtitle": "The name must not contain numbers or be shorter than two characters",
+    "namePlaceholder": "new name*",
+    "nameBtn": "Edit",
+    "surnameTitle": "Please enter the new desired surename:",
+    "surnameSubtitle": "The surename must not contain numbers or be shorter than two characters!",
+    "surnamePlaceholder": "new surename*",
+    "surnameBtn": "Edit",
+    "emailTitle": "Please enter new email",
+    "emailSubtitle": "Your new email address must comply with email formatting rules.",
+    "emailPlaceholder": "new email*",
+    "emailBtn": "Edit",
+    "passwordTitle": "Please enter new password",
+    "passwordSubtitle": "Your new password must be at least 6 characters long.",
+    "passwordPlaceholder1": "new password*",
+    "passwordPlaceholder2": "confirm new password*",
+    "passwordBtn": "Edit"
+  },
+  "error": {
+    "authEmptyField": "Do not leave the fields blank!",
+    "authLogin": "Invalid login credentials",
+    "authRegister": "Your email address may already be in use in our system, or it was entered incorrectly.",
+    "authShortPassword": "The password must be at least 6 characters long.",
+    "modalTitle": "Error!",
+    "modalBtn": "Closed",
+    "recipientYou": "You cannot make transactions to your own account." , 
+    "recipientNotCorrected": "The recipient could not be found for the given number!" , 
+    "sumLow": "Your balance is too low to complete the transfer."
+  }
+}

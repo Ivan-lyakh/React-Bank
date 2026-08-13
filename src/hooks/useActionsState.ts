@@ -7,6 +7,7 @@ import { scrollToTop } from "../utils/ActionModalHellpers"
 import { getActualBalanceWhere } from "../utils/ActionModalHellpers"
 import { changeBalanceFrom } from "../utils/ActionModalHellpers"
 import { changeBalanceWhere } from "../utils/ActionModalHellpers"
+import { useTranslation } from "react-i18next"
 
 const InitalState = {
   error: "",
@@ -70,6 +71,8 @@ const reducer = (state: InitalState, action: Action) => {
 }
 
 export const useActionsState = (account: Account | null, loadAccount: (user: User | null) => Promise<void>) => {
+
+  const { t } = useTranslation()
 
   const [actions, dispatchActions] = useReducer(reducer, InitalState)
 
@@ -175,16 +178,21 @@ export const useActionsState = (account: Account | null, loadAccount: (user: Use
 
         if (account) {
 
+          if(account.account_number === where) {
+            dispatchActions({ type: "SET_ERROR", payload: t("error.recipientYou") })
+            return false
+          }
+
           if (account.balance < sum) {
-            dispatchActions({ type: "SET_ERROR", payload: "Your balance is too low to complete the transfer." })
-            return
+            dispatchActions({ type: "SET_ERROR", payload: t("error.sumLow") })
+            return false
           }
 
           const balanceWhere = await getActualBalanceWhere(where)
 
           if (balanceWhere === false) {
-            dispatchActions({ type: "SET_ERROR", payload: "The recipient could not be found for the given number!" })
-            return
+            dispatchActions({ type: "SET_ERROR", payload: t("error.recipientNotCorrected") })
+            return false
           }
 
           await changeBalanceFrom(account.balance, user, sum)
@@ -194,6 +202,8 @@ export const useActionsState = (account: Account | null, loadAccount: (user: Use
           loadAccount(user)
 
           dispatchActions({ type: "SET_FORM_FIELD", payload: { field: "done", value: true } })
+
+          return true
 
         }
 

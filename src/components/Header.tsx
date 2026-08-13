@@ -4,12 +4,15 @@ import logoSeteding from '../images/seteding.png'
 import logoSetedingWhite from '../images/setedingWhite2.png'
 import { useNavigate } from 'react-router-dom'
 import { useTheme } from '../hooks/useTheme'
+import { useTranslation } from 'react-i18next'
 
 export const Header = () => {
 
   const { theme } = useTheme()
 
   const navigate = useNavigate()
+
+  const { t } = useTranslation()
 
 
   return (
@@ -22,8 +25,8 @@ export const Header = () => {
         </div>
 
         <div className={styles.seactionTools}>
-          <button onClick={() => navigate("/")} className='button'>Home</button>
-          <button onClick={() => navigate("/history")} className='button'>History</button>
+          <button onClick={() => navigate("/")} className='button'>{t("header.home")}</button>
+          <button onClick={() => navigate("/history")} className='button'>{t("header.history")}</button>
         </div>
       </div>
 

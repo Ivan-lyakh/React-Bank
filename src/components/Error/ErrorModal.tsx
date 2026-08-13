@@ -3,6 +3,7 @@ import { useAccount } from "../../hooks/useAccount";
 import { useActions } from "../../hooks/useActions";
 import { useUser } from "../../hooks/useUser";
 import styles from "./Error.module.css";
+import { useTranslation } from "react-i18next";
 
 
 type Props = {
@@ -17,6 +18,8 @@ export const ErrorModal = (props: Props) => {
   const { dispatchAccount } = useAccount()
   const { dispatchActions } = useActions()
 
+  const { t } = useTranslation()
+
   return (
     <div className={styles.overlay}>
       <div className={styles.errorBox}>
@@ -25,7 +28,7 @@ export const ErrorModal = (props: Props) => {
           !
         </div>
 
-        <h2>Error</h2>
+        <h2>{t("error.modalTitle")}</h2>
 
         <p>{props.message}</p>
 
@@ -41,7 +44,7 @@ export const ErrorModal = (props: Props) => {
             dispatchActions({ type: "SET_ERROR", payload: "" })
           }}
           className="button">
-          Closed
+          {t("error.modalBtn")}
         </button>
 
       </div>

@@ -5,12 +5,15 @@ import { useActions } from "../../hooks/useActions"
 import { ErrorModal } from "../Error/ErrorModal"
 import { NumericFormat } from "react-number-format";
 import { useHistory } from '../../hooks/useHistory';
+import { useTranslation } from 'react-i18next';
 
 type Props = {
   goActive: React.Dispatch<React.SetStateAction<string>>
 }
 
 export const Deposit = (props: Props) => {
+
+  const { t } = useTranslation()
 
   const { user } = useUser()
 
@@ -29,7 +32,7 @@ export const Deposit = (props: Props) => {
           thousandSeparator
           decimalScale={0}
           allowNegative={false}
-          placeholder="sum deposit"
+          placeholder={t("deposit.placeholder")}
           onValueChange={(values) =>
             dispatchActions({
               type: "SET_FORM_FIELD",
@@ -45,13 +48,13 @@ export const Deposit = (props: Props) => {
         <button
           onClick={() => {
             if (Number(actions.form.sum) > 50000) {
-              dispatchActions({ type: "SET_ERROR", payload: "Too large an amount for a single deposit!" })
+              dispatchActions({ type: "SET_ERROR", payload: t("deposit.errorBigDeposit") })
               dispatchActions({ type: "RESET_FORM" })
               return
             }
 
             if (Number(actions.form.sum) === 0) {
-              dispatchActions({ type: "SET_ERROR", payload: "To ensure the operation succeeds, do not leave the fields blank!" })
+              dispatchActions({ type: "SET_ERROR", payload: t("transfer.errorBlank") })
               dispatchActions({ type: "RESET_FORM" })
               return
             }
@@ -62,12 +65,12 @@ export const Deposit = (props: Props) => {
             props.goActive("")
 
           }}
-        >Deposit
+        >{t("deposit.btn")}
         </button>
       </div>
 
       <div className={styles.sections}>
-        <h2 className='textModalInside'>The maximum deposit amount is €50,000 per transaction!</h2>
+        <h2 className='textModalInside'>{t("deposit.lastTitle")}</h2>
       </div>
     </div>
   )

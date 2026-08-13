@@ -10,6 +10,8 @@ import { formatAccountNumber, formatNumber } from '../utils/DashboardHelpers';
 import { formatDate } from '../utils/HistoryHelpers';
 import { FaStar } from "react-icons/fa";
 
+import { useTranslation } from 'react-i18next';
+
 
 type Props = {
   data: History | null
@@ -19,6 +21,8 @@ export const HistoryDetails = (props: Props) => {
 
   const { account } = useAccount()
 
+  const { t } = useTranslation()
+
 
 
   if (props.data) {
@@ -27,15 +31,15 @@ export const HistoryDetails = (props: Props) => {
       <div className={styles.mainDetails}>
 
         <div className={styles.id}>
-          <h3 className='textModalInside'>Transaction #{props.data.id}</h3>
+          <h3 className='textModalInside'>{t("historyDetails.transaction")} #{props.data.id}</h3>
         </div>
 
         <div className={styles.details}>
           <div className={styles.detailsHeader}>
-            {props.data.type === "deposit" && <h2><FaPlusCircle color='white' fontSize={"45px"} />Deposit</h2>}
-            {props.data.type === "windtraw" && <h2><FaMinusCircle color='white' fontSize={"40px"} />Withdraw</h2>}
-            {props.data.type === "transfer" && <h2><FaPaperPlane color='white' fontSize={"35px"} />Transfer</h2>}
-            {props.data.type === "loan" && <h2><FaHandHoldingUsd color='white' fontSize={"35px"} />Loan</h2>}
+            {props.data.type === "deposit" && <h2><FaPlusCircle color='white' fontSize={"45px"} />{t("actionDashboard.deposit")}</h2>}
+            {props.data.type === "windtraw" && <h2><FaMinusCircle color='white' fontSize={"40px"} />{t("actionDashboard.withdraw")}</h2>}
+            {props.data.type === "transfer" && <h2><FaPaperPlane color='white' fontSize={"35px"} />{t("actionDashboard.transfer")}</h2>}
+            {props.data.type === "loan" && <h2><FaHandHoldingUsd color='white' fontSize={"35px"} />{t("actionDashboard.loan")}</h2>}
           </div>
 
           <div className={styles.detailsBody}>
@@ -50,11 +54,11 @@ export const HistoryDetails = (props: Props) => {
 
                 <div className={styles.infoBody}>
                   <div className={styles.row}>
-                    <h2><span>Date:</span> {formatDate(props.data.created_at)}</h2>
+                    <h2><span>{t("historyDetails.date")}:</span> {formatDate(props.data.created_at)}</h2>
                   </div>
 
                   <div className={styles.row}>
-                    <h2><span>Account number:</span> {formatAccountNumber(props.data.sender_number)}</h2>
+                    <h2><span>{t("historyDetails.accountNumber")}:</span> {formatAccountNumber(props.data.sender_number)}</h2>
                   </div>
                 </div>
               </div>
@@ -70,11 +74,11 @@ export const HistoryDetails = (props: Props) => {
 
                 <div className={styles.infoBody}>
                   <div className={styles.row}>
-                    <h2><span>Date:</span> {formatDate(props.data.created_at)}</h2>
+                    <h2><span>{t("historyDetails.date")}:</span> {formatDate(props.data.created_at)}</h2>
                   </div>
 
                   <div className={styles.row}>
-                    <h2><span>Account number:</span> {formatAccountNumber(props.data.sender_number)}</h2>
+                    <h2><span>{t("historyDetails.accountNumber")}:</span> {formatAccountNumber(props.data.sender_number)}</h2>
                   </div>
                 </div>
               </div>
@@ -97,7 +101,7 @@ export const HistoryDetails = (props: Props) => {
                       <div className={styles.transferAction}>
                         <h2>{formatAccountNumber(props.data.sender_number)}</h2>
                         <h2><HiArrowDown /></h2>
-                        <h2 ><FaStar /> You</h2>
+                        <h2 ><FaStar /> {t("allHistory.you")}</h2>
                       </div>
                     </div>
                     :
@@ -109,7 +113,7 @@ export const HistoryDetails = (props: Props) => {
 
                       <div>
                         <div className={styles.transferAction}>
-                          <h2><FaStar /> You</h2>
+                          <h2><FaStar /> {t("allHistory.you")}</h2>
                           <h2><HiArrowDown /></h2>
                           <h2>{formatAccountNumber(props.data.sender_number)}</h2>
                         </div>
@@ -120,7 +124,7 @@ export const HistoryDetails = (props: Props) => {
 
                 <div className={styles.infoBody}>
                   <div className={styles.row}>
-                    <h2><span>Date:</span> {formatDate(props.data.created_at)}</h2>
+                    <h2><span>{t("historyDetails.date")}:</span> {formatDate(props.data.created_at)}</h2>
                   </div>
 
                 </div>

@@ -2,24 +2,27 @@ import { useState } from "react"
 import { useAccount } from "../hooks/useAccount"
 import styles from '../styles/ActionsModal.module.css'
 import { ErrorModal } from "./Error/ErrorModal"
+import { useTranslation } from "react-i18next"
 
 type Props = {
   lock: React.Dispatch<React.SetStateAction<boolean>>
 }
 export const ActionsPIN = (props: Props) => {
 
+  const { t } = useTranslation()
+
   const [value, setValue] = useState("")
 
   const { account, dispatchAccount } = useAccount()
 
-  console.log(account.account?.PIN)
+
 
   return (
     <div className={styles.pin}>
 
       {account.error && <ErrorModal message={account.error} />}
 
-      <h2 className="textModalInside">For your safety and to verify your identity, please enter your account PIN.</h2>
+      <h2 className="textModalInside">{t("actionsControlPin.title")}</h2>
 
       <input
         value={value}
@@ -31,9 +34,9 @@ export const ActionsPIN = (props: Props) => {
 
       <button onClick={() => {
         Number(value) === account.account?.PIN
-          ? props.lock(false) 
-          : dispatchAccount({ type: "SET_ERROR", payload: "PIN is not corrected , pleasy try again!" }) , setValue("")
-      }}>Control</button>
+          ? props.lock(false)
+          : dispatchAccount({ type: "SET_ERROR", payload: t("actionsControlPin.error") }), setValue("")
+      }}>{t("actionsControlPin.btn")}</button>
 
     </div>
   )

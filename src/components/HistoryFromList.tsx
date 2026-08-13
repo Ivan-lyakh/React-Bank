@@ -6,6 +6,7 @@ import { formatAccountNumber } from "../utils/DashboardHelpers"
 import { FaStar } from "react-icons/fa";
 import { useAccount } from "../hooks/useAccount"
 import { useNavigate } from "react-router-dom"
+import { useTranslation } from "react-i18next"
 
 type Props = {
   data: History
@@ -14,6 +15,8 @@ type Props = {
 export const HistoryFromList = (props: Props) => {
 
   const { account } = useAccount()
+
+  const { t } = useTranslation()
 
   const navigate = useNavigate()
 
@@ -25,7 +28,10 @@ export const HistoryFromList = (props: Props) => {
       </div>
 
       <div className={styles.section}>
-        <h2>{props.data.type}</h2>
+        <h2>{props.data.type === "transfer" && t("actionDashboard.transfer")}</h2>
+        <h2>{props.data.type === "deposit" && t("actionDashboard.deposit")}</h2>
+        <h2>{props.data.type === "windtraw" && t("actionDashboard.withdraw")}</h2>
+        <h2>{props.data.type === "loan" && t("actionDashboard.loan")}</h2>
       </div>
 
       <div className={styles.section}>
@@ -43,7 +49,7 @@ export const HistoryFromList = (props: Props) => {
           ? <h2>-</h2>
           :
           <div className={styles.senderBox}>
-            {account.account?.account_number === props.data.sender_number ? <span className={styles.star}><FaStar /> You</span> : <h2>{formatAccountNumber(props.data.sender_number)}</h2>}
+            {account.account?.account_number === props.data.sender_number ? <span className={styles.star}><FaStar /> {t("allHistory.you")}</span> : <h2>{formatAccountNumber(props.data.sender_number)}</h2>}
           </div>
         }
       </div>
@@ -53,7 +59,7 @@ export const HistoryFromList = (props: Props) => {
           ? <h2>-</h2>
           :
           <div className={styles.senderBox}>
-            {account.account?.account_number === props.data.recipient_number ? <span className={styles.star}><FaStar /> You</span> : <h2>{formatAccountNumber(props.data.recipient_number)}</h2>}
+            {account.account?.account_number === props.data.recipient_number ? <span className={styles.star}><FaStar /> {t("allHistory.you")}</span> : <h2>{formatAccountNumber(props.data.recipient_number)}</h2>}
           </div>
         }
       </div>

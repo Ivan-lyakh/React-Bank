@@ -1,8 +1,9 @@
 import { MdCheck } from "react-icons/md";
 import styles from "./Notification.module.css";
 import type { History } from "../../types/HistoryTypes";
-import { changeStatusRead,  formatNumber } from "../../utils/DashboardHelpers";
+import { changeStatusRead, formatNumber } from "../../utils/DashboardHelpers";
 import { formatDate } from "../../utils/HistoryHelpers";
+import { useTranslation } from "react-i18next";
 
 
 type Props = {
@@ -14,7 +15,7 @@ type Props = {
 export const MessageForMount = (props: Props) => {
 
 
-  console.log(props.newTransfer.id)
+  const { t } = useTranslation()
 
   return (
     <div className={styles.overlay}>
@@ -24,23 +25,20 @@ export const MessageForMount = (props: Props) => {
           <MdCheck color="white" />
         </div>
 
-        <h2>Incoming transfer</h2>
+        <h2>{t("messageFromMount.title")}</h2>
 
         <h2 style={{ color: "green" }}>+{formatNumber(props.newTransfer.sum)}€</h2>
 
         <p>
-          From: {props.newTransfer.sender_name}
+          {t("messageFromMount.from")}: {props.newTransfer.sender_name}
         </p>
 
         <p>
-          Date: {formatDate(props.newTransfer.created_at)}
+          {t("messageFromMount.date")}: {formatDate(props.newTransfer.created_at)}
         </p>
 
         <p style={{ borderTop: "1px solid grey", padding: "15px 0px 0px 0px" }}>
-          {props.message
-            ? props.message
-            : "New transfer"
-          }
+          {t(props.message ? props.message : "messageFromMount.massage")}
         </p>
 
         <button
@@ -49,7 +47,7 @@ export const MessageForMount = (props: Props) => {
             props.setNewTransfer(null)
           }}
           className="button">
-          Continue
+          {t("messageFromMount.btn")}
         </button>
 
       </div>

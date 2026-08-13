@@ -5,12 +5,14 @@ import { supabase } from '../../services/supabase/supabase';
 import { useAccount } from '../../hooks/useAccount';
 import { EditMode } from './EditMode';
 import { MdCheck } from "react-icons/md";
+import { useTranslation } from 'react-i18next';
 
 type Props = {
   mode: string;
   setOpenModal: React.Dispatch<React.SetStateAction<string>>;
 
 };
+
 
 
 
@@ -24,6 +26,8 @@ export const SetedingModal = (props: Props) => {
 
   const [password, setPassword] = useState("")
 
+  const { t } = useTranslation()
+
   const verifyPassword = async () => {
 
     if (!user?.email) return;
@@ -35,7 +39,7 @@ export const SetedingModal = (props: Props) => {
 
     if (error) {
       setPassword("")
-      dispatchAccount({ type: "SET_ERROR", payload: "Error verify password" })
+      dispatchAccount({ type: "SET_ERROR", payload: t("setedingModal.errorPin") })
       props.setOpenModal("")
       return;
     }
@@ -53,10 +57,10 @@ export const SetedingModal = (props: Props) => {
             <h2>!</h2>
           </div>
 
-          <h2>Verify Password</h2>
+          <h2>{t("setedingModal.titlePin")}</h2>
 
           <input
-            placeholder='enter you password'
+            placeholder={t("setedingModal.placeholderPin")}
             className={styles.input}
             onChange={(e) => setPassword(e.target.value)}
             value={password}
@@ -65,7 +69,7 @@ export const SetedingModal = (props: Props) => {
           <button
             onClick={() => verifyPassword()}
             className="button">
-            Control
+            {t("setedingModal.btnPin")}
           </button>
 
         </div>
@@ -88,7 +92,7 @@ export const SetedingModal = (props: Props) => {
               <h2><MdCheck color='white' /></h2>
             </div>
 
-            <h2>You PIN code:</h2>
+            <h2>{t("setedingModal.youPin")}:</h2>
             <h2>{account.account?.PIN}</h2>
 
 

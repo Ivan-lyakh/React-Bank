@@ -2,9 +2,9 @@ import toast from "react-hot-toast";
 import type { History } from "../types/HistoryTypes";
 import { supabase } from "../services/supabase/supabase";
 
-export const handleCopy = async (value: string) => {
+export const handleCopy = async (value: string , massege: string) => {
   await navigator.clipboard.writeText(value);
-  toast.success(`Card number copied to your clipboard`);
+  toast.success(massege);
 };
 
 export function formatNumber(number: number): string {

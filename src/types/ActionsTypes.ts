@@ -15,5 +15,5 @@ export type InitalState = {
 
 export type ActionsAction = {
   changeBalance: (user: User | null, value: number, mode: "deposit" | "windtraw") => Promise<void>
-  transfer: (user: User | null, where: string, sum: number) => Promise<void>
+  transfer: (user: User | null, where: string, sum: number) => boolean
 }

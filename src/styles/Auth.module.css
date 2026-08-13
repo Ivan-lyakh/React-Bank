@@ -10,6 +10,7 @@
   justify-content: center;
   min-height: 100vh;
   gap: 100px;
+  position: relative;
 }
 
 .innerContainer {
@@ -103,6 +104,24 @@
   right: 10px;
 }
 
+.languageBox{
+  position: absolute;
+  right: 0;
+  top: 35px;
+  display: flex;
+  gap: 10px;
+}
+
+.backBox{
+  position: absolute;
+  left: 0;
+  top: 35px;
+}
+
+.backBox button{
+  display: flex;
+  align-items: center;
+}
 
 
 @media (min-width: 1200px) {

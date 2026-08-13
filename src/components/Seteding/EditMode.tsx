@@ -6,6 +6,7 @@ import { useState } from 'react';
 import { EditModeOpen } from './EditModeOpen';
 import { ErrorModal } from '../Error/ErrorModal';
 import { useActions } from '../../hooks/useActions';
+import { useTranslation } from 'react-i18next';
 
 type Props = {
   setOpenModal: React.Dispatch<React.SetStateAction<string>>;
@@ -21,6 +22,8 @@ export const EditMode = (props: Props) => {
 
   const { actions } = useActions()
 
+  const { t } = useTranslation()
+
 
   return (
     <div className={styles.edit}>
@@ -35,28 +38,28 @@ export const EditMode = (props: Props) => {
           </div>
 
           <div className={styles.headerEdit}>
-            <h2>Edit details</h2>
+            <h2>{t("setedingModal.changeTitle")}</h2>
           </div>
 
           <div className={styles.editSectioins}>
-            <h2> name: {user?.user_metadata.name}</h2>
-            <button onClick={() => setEditOpen("name")} className='button'>edit</button>
+            <h2> {t("seteding.name")}: {user?.user_metadata.name}</h2>
+            <button onClick={() => setEditOpen("name")} className='button'>{t("setedingModal.changeBtn")}</button>
           </div>
 
           <div className={styles.editSectioins}>
-            <h2> surename: {user?.user_metadata.surename}</h2>
-            <button onClick={() => setEditOpen("surename")} className='button'>edit</button>
+            <h2> {t("seteding.surname")}: {user?.user_metadata.surename}</h2>
+            <button onClick={() => setEditOpen("surename")} className='button'>{t("setedingModal.changeBtn")}</button>
           </div>
 
 
           <div className={styles.editSectioins}>
-            <h2> email: {user?.email}</h2>
-            <button onClick={() => setEditOpen("email")} className='button'>edit</button>
+            <h2> {t("seteding.email")}: {user?.email}</h2>
+            <button onClick={() => setEditOpen("email")} className='button'>{t("setedingModal.changeBtn")}</button>
           </div>
 
           <div className={styles.editSectioins}>
-            <h2> change password: </h2>
-            <button onClick={() => setEditOpen("password")} className='button'>change</button>
+            <h2> {t("setedingModal.changePassword")}: </h2>
+            <button onClick={() => setEditOpen("password")} className='button'>{t("setedingModal.changeBtn")}</button>
           </div>
 
 

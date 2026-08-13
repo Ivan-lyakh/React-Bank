@@ -3,8 +3,12 @@ import { useHistory } from '../hooks/useHistory'
 import styles from '../styles/Dashboard.module.css'
 import { LoadingForLastHistory } from './Loading/LoadingForLastHistory'
 import { LastHistoryList } from './LastHistoryList'
+import { useTranslation } from 'react-i18next'
+
 
 export const LastHistory = () => {
+
+  const { t } = useTranslation()
 
   const { history } = useHistory()
 
@@ -12,7 +16,7 @@ export const LastHistory = () => {
     <div className={styles.lastHistory}>
 
       <div className={styles.lastHistoryHeader}>
-        <h2>You 5 last history!</h2>
+        <h2>{t("lastHistory.title")}</h2>
       </div>
 
       <div className={styles.lastHistoryBody}>

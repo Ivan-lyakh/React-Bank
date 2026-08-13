@@ -6,6 +6,7 @@ import { validateName } from "../../utils/DashboardHelpers"
 
 import { useActions } from "../../hooks/useActions"
 import { MdCheck } from "react-icons/md";
+import { useTranslation } from "react-i18next"
 
 type Props = {
   mode: string
@@ -25,6 +26,8 @@ export const EditModeOpen = (props: Props) => {
 
   const [done, setDone] = useState(false)
 
+  const { t } = useTranslation()
+
   const updateUserData = async (
     firstName: string,
     lastName: string
@@ -34,7 +37,7 @@ export const EditModeOpen = (props: Props) => {
 
     if (!control) {
       props.setEditOpen("")
-      dispatchActions({ type: "SET_ERROR", payload: "New data is not correcnted!" })
+      dispatchActions({ type: "SET_ERROR", payload: t("editMode.errorData") })
       return
     }
 
@@ -48,7 +51,7 @@ export const EditModeOpen = (props: Props) => {
 
     if (error) {
       console.log(error)
-      dispatchActions({ type: "SET_ERROR", payload: "New data is not correcnted!" })
+      dispatchActions({ type: "SET_ERROR", payload: t("editMode.errorData") })
     };
 
     setDone(true)
@@ -65,7 +68,7 @@ export const EditModeOpen = (props: Props) => {
       props.setEditOpen("");
       dispatchActions({
         type: "SET_ERROR",
-        payload: "New email is not correct!",
+        payload: t("editMode.errorData"),
       });
       return;
     }
@@ -79,7 +82,7 @@ export const EditModeOpen = (props: Props) => {
 
       dispatchActions({
         type: "SET_ERROR",
-        payload: "This email is already being used in our system!",
+        payload: t("editMode.errorEmailReg"),
       });
 
       return;
@@ -96,7 +99,7 @@ export const EditModeOpen = (props: Props) => {
 
       dispatchActions({
         type: "SET_ERROR",
-        payload: "New password is not correct!",
+        payload: t("editMode.errorData"),
       });
 
       return;
@@ -105,7 +108,7 @@ export const EditModeOpen = (props: Props) => {
     if (value !== confirm) {
       dispatchActions({
         type: "SET_ERROR",
-        payload: "Make sure the same password is entered in both fields!",
+        payload: t("editMode.errorConfirmPassword"),
       });
       return
     }
@@ -119,7 +122,7 @@ export const EditModeOpen = (props: Props) => {
 
       dispatchActions({
         type: "SET_ERROR",
-        payload: "New password is not correct!",
+        payload: t("editMode.errorPass"),
       });
 
       return;
@@ -137,13 +140,13 @@ export const EditModeOpen = (props: Props) => {
           <h2><MdCheck color='white' /></h2>
         </div>
 
-        {props.mode === "name" && <h2 style={{ textAlign: "center" }}>User data successfully updated!</h2>}
+        {props.mode === "name" && <h2 style={{ textAlign: "center" }}>{t("editMode.doneName")}</h2>}
 
-        {props.mode === "surename" && <h2 style={{ textAlign: "center" }}>User data successfully updated!</h2>}
+        {props.mode === "surename" && <h2 style={{ textAlign: "center" }}>{t("editMode.doneSurname")}</h2>}
 
-        {props.mode === "email" && <p style={{ textAlign: "center" }}>To complete the email change, follow the link sent to your new email address.</p>}
+        {props.mode === "email" && <p style={{ textAlign: "center" }}>{t("editMode.doneEmail")}</p>}
 
-        {props.mode === "password" && <p style={{ textAlign: "center" }}>The password has been successfully changed!</p>}
+        {props.mode === "password" && <p style={{ textAlign: "center" }}>{t("editMode.donePassword")}</p>}
 
         <button className='button' onClick={() => props.setEditOpen("")}>OK</button>
 
@@ -156,15 +159,15 @@ export const EditModeOpen = (props: Props) => {
 
     return (
       <div>
-        <h2>Please enter the new desired name:</h2>
-        <p style={{ textAlign: "left", paddingTop: "15px" }}>The name must not contain numbers or be shorter than two characters!</p>
+        <h2>{t("editMode.nameTitle")}:</h2>
+        <p style={{ textAlign: "left", paddingTop: "15px" }}>{t("editMode.nameSubtitle")}</p>
         <div className={styles.openEditColumn}>
           <input
-            placeholder="new name*"
+            placeholder={t("editMode.namePlaceholder")}
             value={value}
             onChange={(e) => setValue(e.target.value)}
             type="text" />
-          <button onClick={() => updateUserData(value, user?.user_metadata.surename)} className="button">edit</button>
+          <button onClick={() => updateUserData(value, user?.user_metadata.surename)} className="button">{t("editMode.nameBtn")}</button>
         </div>
       </div>
     )
@@ -174,15 +177,15 @@ export const EditModeOpen = (props: Props) => {
 
     return (
       <div>
-        <h2>Please enter the new desired surename:</h2>
-        <p style={{ textAlign: "left", paddingTop: "15px" }}>The surename must not contain numbers or be shorter than two characters!</p>
+        <h2>{t("editMode.surnameTitle")}:</h2>
+        <p style={{ textAlign: "left", paddingTop: "15px" }}>{t("editMode.surnameSubtitle")}</p>
         <div className={styles.openEditColumn}>
           <input
-            placeholder="new surename*"
+            placeholder={t("editMode.surnamePlaceholder")}
             value={value}
             onChange={(e) => setValue(e.target.value)}
             type="text" />
-          <button onClick={() => updateUserData(user?.user_metadata.name, value)} className="button">edit</button>
+          <button onClick={() => updateUserData(user?.user_metadata.name, value)} className="button">{t("editMode.surnameBtn")}</button>
         </div>
       </div>
     )
@@ -192,15 +195,15 @@ export const EditModeOpen = (props: Props) => {
 
     return (
       <div>
-        <h2>Please enter new email:</h2>
-        <p style={{ textAlign: "left", paddingTop: "15px" }}>Your new email address must comply with email formatting rules.</p>
+        <h2>{t("editMode.emailTitle")}:</h2>
+        <p style={{ textAlign: "left", paddingTop: "15px" }}>{t("editMode.emailSubtitle")}</p>
         <div className={styles.openEditColumn}>
           <input
-            placeholder="new email*"
+            placeholder={t("editMode.emailPlaceholder")}
             value={value}
             onChange={(e) => setValue(e.target.value)}
             type="text" />
-          <button onClick={() => updateUserEmail(value)} className="button">edit</button>
+          <button onClick={() => updateUserEmail(value)} className="button">{t("editMode.emailBtn")}</button>
         </div>
       </div>
     )
@@ -210,13 +213,13 @@ export const EditModeOpen = (props: Props) => {
 
     return (
       <div>
-        <h2 style={{ textAlign: "center" }}>Please enter new password:</h2>
-        <p style={{ textAlign: "left", paddingTop: "30px" }}>Your new password must be at least 6 characters long.</p>
+        <h2 style={{ textAlign: "center" }}>{t("editMode.passwordTitle")}</h2>
+        <p style={{ textAlign: "left", paddingTop: "30px" }}>{t("editMode.passwordSubtitle")}</p>
 
         <div className={styles.openEditColumn} style={{ display: "flex", flexDirection: "column", gap: "20px", alignItems: "center", justifyContent: "center" }}>
           <div style={{ display: "flex", justifyContent: "center" }}>
             <input
-              placeholder="new password*"
+              placeholder={t("editMode.passwordPlaceholder1")}
               value={value}
               onChange={(e) => setValue(e.target.value)}
               type="text" />
@@ -224,13 +227,13 @@ export const EditModeOpen = (props: Props) => {
 
           <div style={{ display: "flex", justifyContent: "center" }}>
             <input
-              placeholder="confirm new password*"
+              placeholder={t("editMode.passwordPlaceholder2")}
               value={confirm}
               onChange={(e) => setConfirm(e.target.value)}
               type="text" />
           </div>
           <div style={{ display: "flex", justifyContent: "center" }}>
-            <button onClick={() => updateUserPassword(value)} className="button">edit</button>
+            <button onClick={() => updateUserPassword(value)} className="button">{t("editMode.passwordBtn")}</button>
           </div>
         </div>
 

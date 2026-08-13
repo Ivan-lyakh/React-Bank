@@ -1,13 +1,18 @@
-import { BrowserRouter } from 'react-router-dom'
-import { UsersContextProviders } from './providers/UsersContextProviders.tsx'
-import { AccountContextProviders } from './providers/AccountContextProviders.tsx'
-import { ActionsContextProvider } from './providers/ActionsContextProviders.tsx';
-import { HistoryContextProvider } from './providers/HistoryContextProviders.tsx';
-import { ThemeContextProvider } from './providers/ThemeContextProviders.tsx';
+import "./i18n";
+import "../src/styles/theme.css";
+
+import { BrowserRouter } from "react-router-dom";
+import { createRoot } from "react-dom/client";
 import { Toaster } from "react-hot-toast";
-import { createRoot } from 'react-dom/client'
-import App from './App.tsx'
-import '../src/styles/theme.css'
+
+import App from "./App.tsx";
+
+import { UsersContextProviders } from "./providers/UsersContextProviders";
+import { AccountContextProviders } from "./providers/AccountContextProviders";
+import { ActionsContextProvider } from "./providers/ActionsContextProviders";
+import { HistoryContextProvider } from "./providers/HistoryContextProviders";
+import { ThemeContextProvider } from "./providers/ThemeContextProviders";
+
 
 createRoot(document.getElementById('root')!).render(
   <BrowserRouter>

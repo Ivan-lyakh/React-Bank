@@ -24,6 +24,10 @@ body {
   color: var(--button-color-hover)
 }
 
+.deativetedBtn{
+  display: flex;
+  justify-content: center;
+}
 
 .deativetedBtn button {
   padding: 10px 15px;

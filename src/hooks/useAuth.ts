@@ -4,6 +4,7 @@ import { supabase } from "../services/supabase/supabase"
 import type { User } from "@supabase/supabase-js"
 import { createAccount } from "../utils/AuthHelpers"
 import { useNavigate } from "react-router-dom"
+import { useTranslation } from "react-i18next"
 
 const initialState = {
   error: "",
@@ -65,6 +66,8 @@ export const useAuth = () => {
 
   const [loadingUser, setLoadingUser] = useState(true);
 
+  const { t } = useTranslation();
+
   async function loadUsers() {
     const { data } = await supabase.auth.getUser()
 
@@ -102,7 +105,7 @@ export const useAuth = () => {
     });
 
     if (error) {
-      dispatch({ type: "CHANGE_ERROR", payload: error.message });
+      dispatch({ type: "CHANGE_ERROR", payload: t("error.authRegister") });
       dispatch({ type: "CHANGE_LOADING", payload: false });
     }
 
@@ -135,7 +138,7 @@ export const useAuth = () => {
     });
 
     if (error) {
-      dispatch({ type: "CHANGE_ERROR", payload: error.message })
+      dispatch({ type: "CHANGE_ERROR", payload: t("error.authLogin") })
       dispatch({ type: "CHANGE_LOADING", payload: false })
       setLoadingUser(false)
       return

@@ -5,17 +5,20 @@ import copyIcon from '../images/copy.png'
 
 import { useAccount } from '../hooks/useAccount'
 import { formatAccountNumber } from '../utils/DashboardHelpers'
+import { useTranslation } from 'react-i18next'
 
 export const CardDashboard = () => {
 
   const { account } = useAccount()
+
+  const { t } = useTranslation()
 
   return (
 
     <div className={styles.card}>
 
       <div className={styles.cardHeader}>
-        <h2 className="text">Main account</h2>
+        <h2 className="text">{t("cardDashboard.account")}</h2>
       </div>
 
 
@@ -23,11 +26,11 @@ export const CardDashboard = () => {
         <h2>
           <img src={cardIcon} alt="#" />
           {formatAccountNumber(account.account?.account_number ?? "")}
-          <img className={styles.copy} onClick={() => handleCopy(String(account.account?.account_number))} src={copyIcon} alt="№" /></h2>
+          <img className={styles.copy} onClick={() => handleCopy(String(account.account?.account_number) , t("cardDashboard.copyMassege"))} src={copyIcon} alt="№" /></h2>
       </div>
 
       <div className={styles.cardBalance}>
-        <h2>Balance: <span>{formatNumber(Number(account.account?.balance))}€</span></h2>
+        <h2>{t("cardDashboard.balance")}: <span>{formatNumber(Number(account.account?.balance))}€</span></h2>
 
       </div>
 

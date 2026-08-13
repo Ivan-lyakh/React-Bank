@@ -10,6 +10,7 @@ import { Loading } from "./Loading/Loading"
 import { MassegeModal } from "./Massage/NotificationModal"
 import type { History } from "../types/HistoryTypes"
 import { MessageForMount } from "./Massage/MessageForMount"
+import { useTranslation } from "react-i18next"
 
 
 
@@ -25,10 +26,6 @@ export const Dashboard = () => {
   const [newTransfer, setNewTransfer] = useState<null | History>(null)
 
   const { actions } = useActions()
-
-  console.log(localStorage)
-
-  localStorage.setItem("theme", "dark")
 
 
   useEffect(() => {
@@ -56,16 +53,19 @@ export const Dashboard = () => {
 
   }, [history.history, account.account]);
 
+  console.log(localStorage)
+
+  const { t } = useTranslation()
 
   return (
     <div className={styles.main}>
 
       {newTransfer && <MessageForMount newTransfer={newTransfer} message={newTransfer.message} setNewTransfer={setNewTransfer} />}
 
-      {actions.form.done && <MassegeModal message="Your transaction was successfully completed!" />}
+      {actions.form.done && <MassegeModal message={t("dashboard.massegeDoneTransActions")} />}
 
       <div className={styles.hello}>
-        <h2 className="title">Welcome , <span>{user?.user_metadata.name}</span>👋</h2>
+        <h2 className="title">{t("dashboard.hello")} , <span>{user?.user_metadata.name}</span>👋</h2>
       </div>
 
       <div className={styles.body}>
