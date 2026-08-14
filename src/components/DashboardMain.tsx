@@ -1,8 +1,10 @@
 
 import styles from '../styles/Dashboard.module.css'
+
+import { useState } from 'react'
+
 import { CardDashboard } from "./CardDashboard"
 import { ActionDashboard } from './ActionDashboard'
-import { useState } from 'react'
 import { ActionsModal } from './ActionsModal'
 import { LastHistory } from './LastHistory'
 
@@ -11,7 +13,6 @@ import { LastHistory } from './LastHistory'
 export const DashboardMain = () => {
 
   const [actionActive, setActionActive] = useState("")
-
 
 
   return (

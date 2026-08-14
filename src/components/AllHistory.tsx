@@ -1,18 +1,18 @@
 
 import styles from "../styles/History.module.css"
-import { HistoryFromList } from "./HistoryFromList"
 
-import type { History } from "../types/HistoryTypes"
-import { useHistory } from "../hooks/useHistory"
 import { useTranslation } from "react-i18next"
+import { useHistory } from "../hooks/useHistory"
+
+import { HistoryFromList } from "./HistoryFromList"
+import type { History } from "../types/HistoryTypes"
+
 
 
 
 export const AllHistory = () => {
 
   const { history } = useHistory()
-
-  console.log(history.history.length)
 
   const { t } = useTranslation()
 

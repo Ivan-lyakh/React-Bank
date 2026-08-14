@@ -1,13 +1,15 @@
+import styles from '../styles/Seteding.module.css'
+
 import { useState } from "react"
 import { useAccount } from "../hooks/useAccount"
 import { useTheme } from "../hooks/useTheme"
 import { useUser } from "../hooks/useUser"
-import styles from '../styles/Seteding.module.css'
+import { useTranslation } from "react-i18next";
+
 import { formatAccountNumber } from "../utils/DashboardHelpers"
 import { formatDate } from "../utils/HistoryHelpers"
 import { ErrorModal } from "./Error/ErrorModal"
 import { SetedingModal } from "./Seteding/SetedingModal"
-import { useTranslation } from "react-i18next";
 import i18n from "../i18n"
 
 

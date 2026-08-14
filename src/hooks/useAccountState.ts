@@ -1,5 +1,5 @@
 
-import { useEffect, useReducer, useState } from "react"
+import {  useReducer, useState } from "react"
 import type { Account, InitialState } from "../types/AccountTypes"
 import type { User } from "@supabase/supabase-js"
 import { supabase } from "../services/supabase/supabase"

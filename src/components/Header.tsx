@@ -1,10 +1,13 @@
-import logo from '../images/ReactLogo.png'
 import styles from '../styles/Header.module.css'
-import logoSeteding from '../images/seteding.png'
-import logoSetedingWhite from '../images/setedingWhite2.png'
-import { useNavigate } from 'react-router-dom'
+
 import { useTheme } from '../hooks/useTheme'
 import { useTranslation } from 'react-i18next'
+import { useNavigate } from 'react-router-dom'
+
+import logo from '../images/ReactLogo.png'
+import logoSeteding from '../images/seteding.png'
+import logoSetedingWhite from '../images/setedingWhite2.png'
+
 
 export const Header = () => {
 

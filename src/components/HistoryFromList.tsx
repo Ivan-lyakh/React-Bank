@@ -1,12 +1,15 @@
-import type { History } from "../types/HistoryTypes"
 import styles from "../styles/History.module.css"
+
+import { useAccount } from "../hooks/useAccount"
+import { useNavigate } from "react-router-dom"
+import { useTranslation } from "react-i18next"
+
+import type { History } from "../types/HistoryTypes"
 import { formatDate } from "../utils/HistoryHelpers"
 import { formatNumber } from "../utils/DashboardHelpers"
 import { formatAccountNumber } from "../utils/DashboardHelpers"
 import { FaStar } from "react-icons/fa";
-import { useAccount } from "../hooks/useAccount"
-import { useNavigate } from "react-router-dom"
-import { useTranslation } from "react-i18next"
+
 
 type Props = {
   data: History

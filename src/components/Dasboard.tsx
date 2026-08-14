@@ -1,16 +1,20 @@
+import styles from '../styles/Dashboard.module.css'
+
+
 
 import { useEffect, useState } from "react"
 import { useAccount } from "../hooks/useAccount"
 import { useActions } from "../hooks/useActions"
 import { useHistory } from "../hooks/useHistory"
 import { useUser } from "../hooks/useUser"
-import styles from '../styles/Dashboard.module.css'
+import { useTranslation } from "react-i18next"
+
 import { DashboardMain } from "./DashboardMain"
 import { Loading } from "./Loading/Loading"
 import { MassegeModal } from "./Massage/NotificationModal"
 import type { History } from "../types/HistoryTypes"
 import { MessageForMount } from "./Massage/MessageForMount"
-import { useTranslation } from "react-i18next"
+
 
 
 

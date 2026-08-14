@@ -1,6 +1,8 @@
 import styles from '../styles/Auth.module.css'
-import ReactLogo from '../images/ReactLogo.png'
+
 import { useState } from 'react'
+
+import ReactLogo from '../images/ReactLogo.png'
 import { AuthMode } from './AuthMode'
 import { useTranslation } from "react-i18next";
 import i18n from "../i18n"

@@ -1,16 +1,19 @@
+import styles from '../styles/Dashboard.module.css'
+
 
 import { useState, useEffect } from "react";
 import { useHistory } from "../hooks/useHistory";
-import type { History } from "../types/HistoryTypes";
-import styles from '../styles/Dashboard.module.css'
 import { useAccount } from "../hooks/useAccount";
+import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
+
+import type { History } from "../types/HistoryTypes";
 import { formatNumber } from "../utils/DashboardHelpers";
 import { FaPaperPlane } from "react-icons/fa";
 import { FaPlusCircle } from "react-icons/fa";
 import { FaMinusCircle } from "react-icons/fa";
 import { FaHandHoldingUsd } from "react-icons/fa";
-import { useNavigate } from "react-router-dom";
-import { useTranslation } from "react-i18next";
+
 
 
 export const LastHistoryList = () => {

@@ -1,5 +1,7 @@
-import { MdCheck } from "react-icons/md";
 import styles from "./Notification.module.css";
+
+import { MdCheck } from "react-icons/md";
+
 import { useActions } from "../../hooks/useActions";
 import { useTranslation } from "react-i18next";
 

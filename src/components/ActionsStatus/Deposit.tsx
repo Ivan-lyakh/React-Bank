@@ -1,11 +1,14 @@
 
 import styles from '../ActionsStatus/ActionStatus.module.css'
+
 import { useUser } from "../../hooks/useUser"
 import { useActions } from "../../hooks/useActions"
-import { ErrorModal } from "../Error/ErrorModal"
-import { NumericFormat } from "react-number-format";
 import { useHistory } from '../../hooks/useHistory';
 import { useTranslation } from 'react-i18next';
+
+import { ErrorModal } from "../Error/ErrorModal"
+import { NumericFormat } from "react-number-format";
+
 
 type Props = {
   goActive: React.Dispatch<React.SetStateAction<string>>

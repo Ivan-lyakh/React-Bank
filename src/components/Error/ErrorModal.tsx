@@ -1,8 +1,9 @@
+import styles from "./Error.module.css";
+
 import { useNavigate } from "react-router-dom";
 import { useAccount } from "../../hooks/useAccount";
 import { useActions } from "../../hooks/useActions";
 import { useUser } from "../../hooks/useUser";
-import styles from "./Error.module.css";
 import { useTranslation } from "react-i18next";
 
 

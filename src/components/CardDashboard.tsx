@@ -1,11 +1,12 @@
 import styles from '../styles/Dashboard.module.css'
+
+import { useTranslation } from 'react-i18next'
+import { useAccount } from '../hooks/useAccount'
+
 import { handleCopy, formatNumber } from '../utils/DashboardHelpers'
 import cardIcon from '../images/card.png'
 import copyIcon from '../images/copy.png'
-
-import { useAccount } from '../hooks/useAccount'
 import { formatAccountNumber } from '../utils/DashboardHelpers'
-import { useTranslation } from 'react-i18next'
 
 export const CardDashboard = () => {
 

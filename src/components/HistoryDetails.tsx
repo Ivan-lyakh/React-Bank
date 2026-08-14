@@ -1,5 +1,8 @@
 import styles from '../styles/History.module.css'
+
 import { useAccount } from "../hooks/useAccount"
+import { useTranslation } from 'react-i18next';
+
 import type { History } from "../types/HistoryTypes"
 import { FaPaperPlane } from "react-icons/fa";
 import { FaPlusCircle } from "react-icons/fa";
@@ -10,7 +13,7 @@ import { formatAccountNumber, formatNumber } from '../utils/DashboardHelpers';
 import { formatDate } from '../utils/HistoryHelpers';
 import { FaStar } from "react-icons/fa";
 
-import { useTranslation } from 'react-i18next';
+
 
 
 type Props = {

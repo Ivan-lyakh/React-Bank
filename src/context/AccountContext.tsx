@@ -1,7 +1,6 @@
 import { createContext } from "react";
-import type { Account, InitialState } from "../types/AccountTypes";
+import type { InitialState } from "../types/AccountTypes";
 import { type Action } from "../hooks/useAccountState";
-import { type User } from "@supabase/supabase-js";
 
 
 

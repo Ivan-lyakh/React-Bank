@@ -1,16 +1,18 @@
 import styles from '../ActionsStatus/ActionStatus.module.css'
+
 import { useUser } from '../../hooks/useUser'
 import { useActions } from '../../hooks/useActions'
-import { ErrorModal } from '../Error/ErrorModal'
-import { useAccount } from '../../hooks/useAccount'
-import { NumericFormat } from 'react-number-format'
 import { useHistory } from '../../hooks/useHistory'
 import { useTranslation } from 'react-i18next'
+import { useAccount } from '../../hooks/useAccount'
+
+import { ErrorModal } from '../Error/ErrorModal'
+import { NumericFormat } from 'react-number-format'
+
 
 type Props = {
   goActive: React.Dispatch<React.SetStateAction<string>>
 }
-
 
 
 export const Windtraw = (props: Props) => {

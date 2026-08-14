@@ -1,9 +1,12 @@
-import { MdCheck } from "react-icons/md";
 import styles from "./Notification.module.css";
+
+import { useTranslation } from "react-i18next";
+
+import { MdCheck } from "react-icons/md";
 import type { History } from "../../types/HistoryTypes";
 import { changeStatusRead, formatNumber } from "../../utils/DashboardHelpers";
 import { formatDate } from "../../utils/HistoryHelpers";
-import { useTranslation } from "react-i18next";
+
 
 
 type Props = {

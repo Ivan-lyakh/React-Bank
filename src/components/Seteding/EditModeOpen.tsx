@@ -1,12 +1,13 @@
+import styles from './SetedingModal.module.css'
+
 import { useState } from "react"
 import { useUser } from "../../hooks/useUser"
-import styles from './SetedingModal.module.css'
+import { useTranslation } from "react-i18next"
+import { useActions } from "../../hooks/useActions"
+
 import { supabase } from "../../services/supabase/supabase"
 import { validateName } from "../../utils/DashboardHelpers"
-
-import { useActions } from "../../hooks/useActions"
 import { MdCheck } from "react-icons/md";
-import { useTranslation } from "react-i18next"
 
 type Props = {
   mode: string

@@ -1,19 +1,20 @@
+import styles from './SetedingModal.module.css'
+
 
 import { useUser } from '../../hooks/useUser'
-import styles from './SetedingModal.module.css'
-import closedIconWhite from '../../images/closedWhite.png'
-import { useState } from 'react';
-import { EditModeOpen } from './EditModeOpen';
-import { ErrorModal } from '../Error/ErrorModal';
 import { useActions } from '../../hooks/useActions';
 import { useTranslation } from 'react-i18next';
+import { useState } from 'react';
+
+import closedIconWhite from '../../images/closedWhite.png'
+import { EditModeOpen } from './EditModeOpen';
+import { ErrorModal } from '../Error/ErrorModal';
 
 type Props = {
   setOpenModal: React.Dispatch<React.SetStateAction<string>>;
 }
 
 export const EditMode = (props: Props) => {
-
 
 
   const { user } = useUser()

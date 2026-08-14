@@ -1,8 +1,11 @@
+import styles from '../styles/ActionsModal.module.css'
+
 import { useState } from "react"
 import { useAccount } from "../hooks/useAccount"
-import styles from '../styles/ActionsModal.module.css'
-import { ErrorModal } from "./Error/ErrorModal"
 import { useTranslation } from "react-i18next"
+
+import { ErrorModal } from "./Error/ErrorModal"
+
 
 type Props = {
   lock: React.Dispatch<React.SetStateAction<boolean>>
@@ -14,7 +17,6 @@ export const ActionsPIN = (props: Props) => {
   const [value, setValue] = useState("")
 
   const { account, dispatchAccount } = useAccount()
-
 
 
   return (

@@ -1,11 +1,13 @@
-import { useState } from 'react'
 import styles from '../styles/Auth.module.css'
+
+import { useState } from 'react'
+import { useUser } from '../hooks/useUser'
+import { useTranslation } from 'react-i18next'
+
 import closed from '../images/closedEayes.png'
 import open from '../images/openEayes.png'
-import { useUser } from '../hooks/useUser'
 import { Loading } from './Loading/Loading'
 import { ErrorModal } from './Error/ErrorModal'
-import { useTranslation } from 'react-i18next'
 
 type Props = {
   mode: string

@@ -1,9 +1,11 @@
+import styles from '../styles/Dashboard.module.css'
 
 import { useHistory } from '../hooks/useHistory'
-import styles from '../styles/Dashboard.module.css'
+import { useTranslation } from 'react-i18next'
+
 import { LoadingForLastHistory } from './Loading/LoadingForLastHistory'
 import { LastHistoryList } from './LastHistoryList'
-import { useTranslation } from 'react-i18next'
+
 
 
 export const LastHistory = () => {

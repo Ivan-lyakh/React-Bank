@@ -1,9 +1,11 @@
 import styles from '../styles/Dashboard.module.css'
+
+import { useTranslation } from 'react-i18next';
+
 import { FaPaperPlane } from "react-icons/fa";
 import { FaPlusCircle } from "react-icons/fa";
 import { FaMinusCircle } from "react-icons/fa";
 import { FaHandHoldingUsd } from "react-icons/fa";
-import { useTranslation } from 'react-i18next';
 
 
 type Props = {

@@ -1,5 +1,6 @@
 
 import styles from '../styles/Footer.module.css'
+
 import gitHubLogo from '../images/GitHub_Invertocat_White.png'
 import portfolioLogo from '../images/icons8-portfolio-90.png'
 import telegramLogo from '../images/telegram.png'
