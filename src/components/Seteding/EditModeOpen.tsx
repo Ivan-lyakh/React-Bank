@@ -195,7 +195,7 @@ export const EditModeOpen = (props: Props) => {
   if (props.mode === "email") {
 
     return (
-      <div>
+      <div className={styles.containerBox}>
         <h2>{t("editMode.emailTitle")}:</h2>
         <p style={{ textAlign: "left", paddingTop: "15px" }}>{t("editMode.emailSubtitle")}</p>
         <div className={styles.openEditColumn}>
