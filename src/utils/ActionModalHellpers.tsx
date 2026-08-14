@@ -38,11 +38,7 @@ export const scrollToTop = () => {
   });
 };
 
-const formatNumber = (value: string) => {
-  if (!value) return "";
 
-  return Number(value.replace(/\./g, "")).toLocaleString("de-DE");
-};
 
 
 

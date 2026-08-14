@@ -166,56 +166,75 @@ export const useActionsState = (account: Account | null, loadAccount: (user: Use
 
   }
 
-  const transfer = async (user: User | null, where: string, sum: number) => {
+const transfer = async (
+  user: User | null,
+  where: string,
+  sum: number
+): Promise<boolean> => {
 
-    if (user !== null) {
+  if (user !== null) {
 
-      try {
+    try {
 
-        dispatchActions({ type: "SET_ERROR", payload: "" })
+      dispatchActions({ type: "SET_ERROR", payload: "" })
+      dispatchActions({ type: "CHANGE_LOADING", payload: true })
 
-        dispatchActions({ type: "CHANGE_LOADING", payload: true })
+      if (account) {
 
-        if (account) {
-
-          if(account.account_number === where) {
-            dispatchActions({ type: "SET_ERROR", payload: t("error.recipientYou") })
-            return false
-          }
-
-          if (account.balance < sum) {
-            dispatchActions({ type: "SET_ERROR", payload: t("error.sumLow") })
-            return false
-          }
-
-          const balanceWhere = await getActualBalanceWhere(where)
-
-          if (balanceWhere === false) {
-            dispatchActions({ type: "SET_ERROR", payload: t("error.recipientNotCorrected") })
-            return false
-          }
-
-          await changeBalanceFrom(account.balance, user, sum)
-
-          await changeBalanceWhere(Number(balanceWhere), where, sum)
-
-          loadAccount(user)
-
-          dispatchActions({ type: "SET_FORM_FIELD", payload: { field: "done", value: true } })
-
-          return true
-
+        if (account.account_number === where) {
+          dispatchActions({
+            type: "SET_ERROR",
+            payload: t("error.recipientYou")
+          })
+          return false
         }
 
+        if (account.balance < sum) {
+          dispatchActions({
+            type: "SET_ERROR",
+            payload: t("error.sumLow")
+          })
+          return false
+        }
+
+        const balanceWhere = await getActualBalanceWhere(where)
+
+        if (balanceWhere === false) {
+          dispatchActions({
+            type: "SET_ERROR",
+            payload: t("error.recipientNotCorrected")
+          })
+          return false
+        }
+
+        await changeBalanceFrom(account.balance, user, sum)
+        await changeBalanceWhere(Number(balanceWhere), where, sum)
+
+        loadAccount(user)
+
+        dispatchActions({
+          type: "SET_FORM_FIELD",
+          payload: {
+            field: "done",
+            value: true
+          }
+        })
+
+        return true
       }
 
-      finally {
-        dispatchActions({ type: "CHANGE_LOADING", payload: false })
-        scrollToTop()
-      }
+    } finally {
+      dispatchActions({
+        type: "CHANGE_LOADING",
+        payload: false
+      })
+
+      scrollToTop()
     }
-
   }
+
+  return false
+}
 
   const actionsAction = { transfer, changeBalance }
 

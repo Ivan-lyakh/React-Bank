@@ -57,7 +57,7 @@ export const ActionsModal = (props: Props) => {
 
                 {props.status === "windtraw" && <Windtraw goActive={props.goActive} />}
 
-                {props.status === "loan" && <Loan goActive={props.goActive} />}
+                {props.status === "loan" && <Loan />}
 
               </div>
 
