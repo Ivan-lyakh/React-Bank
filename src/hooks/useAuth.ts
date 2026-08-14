@@ -69,17 +69,21 @@ export const useAuth = () => {
   const { t } = useTranslation();
 
   async function loadUsers() {
-    const { data } = await supabase.auth.getUser()
+  try {
+    const { data, error } = await supabase.auth.getUser()
 
-    if (data.user) {
-
-      setUser(data.user)
-
-      setLoadingUser(false);
-
+    if (error) {
+      console.log(error)
+      return
     }
 
+    if (data.user) {
+      setUser(data.user)
+    }
+  } finally {
+    setLoadingUser(false)
   }
+}
 
   useEffect(() => {
 

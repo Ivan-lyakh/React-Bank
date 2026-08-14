@@ -15,7 +15,7 @@ import { ThemeContextProvider } from "./providers/ThemeContextProviders";
 
 
 createRoot(document.getElementById('root')!).render(
-  <BrowserRouter>
+  <BrowserRouter basename="/React-Bank">
 
     <ThemeContextProvider>
 
