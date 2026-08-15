@@ -1,75 +1,86 @@
-# React + TypeScript + Vite
+# React-Bank
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+React-Bank — это веб-приложение, имитирующее банковский личный кабинет.
 
-Currently, two official plugins are available:
+Проект позволяет пользователям регистрироваться и авторизовываться, управлять банковским аккаунтом, выполнять финансовые операции и просматривать историю транзакций через простой и удобный интерфейс.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Возможности
 
-## React Compiler
+- Аутентификация пользователей
+- Просмотр банковского аккаунта и баланса
+- Перевод средств между аккаунтами
+- Пополнение счёта
+- Снятие средств
+- Оформление кредита
+- Управление PIN-кодом
+- Просмотр истории транзакций
+- Просмотр подробной информации о транзакциях
+- Редактирование данных профиля
+- Смена пароля и email
+- Светлая и тёмная тема
+- Русский и английский языки
+- Уведомления об успешных и ошибочных операциях
+- Адаптивный дизайн
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Технологии
 
-## Expanding the ESLint configuration
+- React
+- TypeScript
+- React Router
+- Supabase
+- i18next
+- React Hot Toast
+- React Icons
+- CSS Modules
+- React Number Format
+- Vite
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Демо
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+https://ivan-lyakh.github.io/React-Bank/
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+---
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+# React-Bank
 
-```
+React-Bank is a web application that simulates a personal banking dashboard.
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+The project allows users to register and log in, manage their bank account, perform financial operations, and view transaction history through a simple and intuitive interface.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## Features
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
+- User authentication
+- View bank account and balance
+- Transfer money between accounts
+- Deposit funds
+- Withdraw funds
+- Loan functionality
+- PIN code management
+- View transaction history
+- View detailed transaction information
+- Edit profile information
+- Change password and email
+- Light and dark themes
+- Russian and English languages
+- Success and error notifications
+- Responsive design
+
+## Tech Stack
+
+- React
+- TypeScript
+- React Router
+- Supabase
+- i18next
+- React Hot Toast
+- React Icons
+- CSS Modules
+- React Number Format
+- Vite
+
+## Live Demo
+
+https://ivan-lyakh.github.io/React-Bank/
 ])
 
 ```
